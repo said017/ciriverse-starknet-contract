@@ -34,4 +34,7 @@ namespace ICIRIERC20 {
 
     func approve(spender: felt, amount: Uint256) -> (success: felt) {
     }
+
+    func mint(to: felt, amount: Uint256) {
+    }
 }

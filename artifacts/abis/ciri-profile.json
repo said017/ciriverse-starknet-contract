@@ -17,6 +17,38 @@
         "type": "struct"
     },
     {
+        "members": [
+            {
+                "name": "profile_id",
+                "offset": 0,
+                "type": "Uint256"
+            },
+            {
+                "name": "price_to_mint",
+                "offset": 2,
+                "type": "Uint256"
+            },
+            {
+                "name": "gated",
+                "offset": 4,
+                "type": "felt"
+            },
+            {
+                "name": "minted",
+                "offset": 5,
+                "type": "felt"
+            },
+            {
+                "name": "token_id",
+                "offset": 6,
+                "type": "Uint256"
+            }
+        ],
+        "name": "Collectible",
+        "size": 8,
+        "type": "struct"
+    },
+    {
         "data": [
             {
                 "name": "previousOwner",
@@ -141,6 +173,10 @@
                 "type": "felt"
             },
             {
+                "name": "goerli_eth",
+                "type": "felt"
+            },
+            {
                 "name": "token_uri_len",
                 "type": "felt"
             },
@@ -168,6 +204,93 @@
         "outputs": [
             {
                 "name": "profile_id",
+                "type": "Uint256"
+            }
+        ],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "profile_id",
+                "type": "Uint256"
+            },
+            {
+                "name": "price_to_mint",
+                "type": "Uint256"
+            },
+            {
+                "name": "gated",
+                "type": "felt"
+            },
+            {
+                "name": "uri_len",
+                "type": "felt"
+            },
+            {
+                "name": "uri",
+                "type": "felt*"
+            }
+        ],
+        "name": "create_collectible",
+        "outputs": [
+            {
+                "name": "profile_id",
+                "type": "Uint256"
+            }
+        ],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "profile_id",
+                "type": "Uint256"
+            },
+            {
+                "name": "index",
+                "type": "felt"
+            },
+            {
+                "name": "price",
+                "type": "Uint256"
+            }
+        ],
+        "name": "mint_collectible",
+        "outputs": [
+            {
+                "name": "profile_id",
+                "type": "Uint256"
+            }
+        ],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "_creator_id",
+                "type": "Uint256"
+            },
+            {
+                "name": "_amount",
+                "type": "Uint256"
+            }
+        ],
+        "name": "donate",
+        "outputs": [
+            {
+                "name": "amount",
+                "type": "Uint256"
+            }
+        ],
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "claim",
+        "outputs": [
+            {
+                "name": "amount",
                 "type": "Uint256"
             }
         ],
@@ -273,6 +396,28 @@
     {
         "inputs": [
             {
+                "name": "goerli_address",
+                "type": "felt"
+            }
+        ],
+        "name": "setGoerliAddress",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "ciri_address",
+                "type": "felt"
+            }
+        ],
+        "name": "setCiriAddress",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "name": "to",
                 "type": "felt"
             },
@@ -323,6 +468,44 @@
         "outputs": [
             {
                 "name": "milestone",
+                "type": "Uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "address",
+                "type": "felt"
+            },
+            {
+                "name": "profile_id",
+                "type": "Uint256"
+            }
+        ],
+        "name": "get_donated_fund",
+        "outputs": [
+            {
+                "name": "fund",
+                "type": "Uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "address",
+                "type": "felt"
+            }
+        ],
+        "name": "get_token_to_mint",
+        "outputs": [
+            {
+                "name": "fund",
                 "type": "Uint256"
             }
         ],
@@ -499,6 +682,27 @@
             {
                 "name": "is_approved",
                 "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "profile_id",
+                "type": "Uint256"
+            },
+            {
+                "name": "index",
+                "type": "felt"
+            }
+        ],
+        "name": "get_collectible_at",
+        "outputs": [
+            {
+                "name": "collectible",
+                "type": "Collectible"
             }
         ],
         "stateMutability": "view",

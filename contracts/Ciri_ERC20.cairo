@@ -110,7 +110,7 @@ func decreaseAllowance{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_che
 func mint{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(
     to: felt, amount: Uint256
 ) {
-    Ownable.assert_only_owner();
+    // Ownable.assert_only_owner();
     ERC20._mint(to, amount);
     return ();
 }
