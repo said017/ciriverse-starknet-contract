@@ -196,8 +196,12 @@
                 "type": "felt"
             },
             {
-                "name": "pic",
+                "name": "pic_len",
                 "type": "felt"
+            },
+            {
+                "name": "pic",
+                "type": "felt*"
             }
         ],
         "name": "create_profile",
@@ -319,6 +323,26 @@
     {
         "inputs": [
             {
+                "name": "owner",
+                "type": "felt"
+            },
+            {
+                "name": "_milestone",
+                "type": "felt"
+            }
+        ],
+        "name": "set_creator_milestone_by_addr",
+        "outputs": [
+            {
+                "name": "update_milestone",
+                "type": "Uint256"
+            }
+        ],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "name": "_from",
                 "type": "felt"
             },
@@ -418,6 +442,17 @@
     {
         "inputs": [
             {
+                "name": "col_address",
+                "type": "felt"
+            }
+        ],
+        "name": "setCollectibleAddress",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "name": "to",
                 "type": "felt"
             },
@@ -465,6 +500,23 @@
             }
         ],
         "name": "get_profile_milestone",
+        "outputs": [
+            {
+                "name": "milestone",
+                "type": "Uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "owner",
+                "type": "felt"
+            }
+        ],
+        "name": "get_profile_milestone_by_addr",
         "outputs": [
             {
                 "name": "milestone",
@@ -526,16 +578,33 @@
                 "type": "felt"
             },
             {
-                "name": "pic",
-                "type": "felt"
-            },
-            {
                 "name": "funds",
                 "type": "Uint256"
             },
             {
                 "name": "creator_id",
                 "type": "Uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "profile_id",
+                "type": "Uint256"
+            }
+        ],
+        "name": "get_profile_img_id",
+        "outputs": [
+            {
+                "name": "uri_img_len",
+                "type": "felt"
+            },
+            {
+                "name": "uri_img",
+                "type": "felt*"
             }
         ],
         "stateMutability": "view",
@@ -703,6 +772,145 @@
             {
                 "name": "collectible",
                 "type": "Collectible"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "owner",
+                "type": "felt"
+            }
+        ],
+        "name": "get_collectibles",
+        "outputs": [
+            {
+                "name": "collectible_len",
+                "type": "felt"
+            },
+            {
+                "name": "collectible",
+                "type": "Collectible*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "owner",
+                "type": "felt"
+            },
+            {
+                "name": "index",
+                "type": "Uint256"
+            }
+        ],
+        "name": "tokenOfOwnerByIndex",
+        "outputs": [
+            {
+                "name": "tokenId",
+                "type": "Uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "owner",
+                "type": "felt"
+            }
+        ],
+        "name": "get_profile_by_addr",
+        "outputs": [
+            {
+                "name": "name",
+                "type": "felt"
+            },
+            {
+                "name": "funds",
+                "type": "Uint256"
+            },
+            {
+                "name": "creator_id",
+                "type": "Uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "profile_id",
+                "type": "Uint256"
+            }
+        ],
+        "name": "get_collectible_count",
+        "outputs": [
+            {
+                "name": "count",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "token_id",
+                "type": "Uint256"
+            }
+        ],
+        "name": "get_owner_collectible",
+        "outputs": [
+            {
+                "name": "owner",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "token_id",
+                "type": "Uint256"
+            }
+        ],
+        "name": "get_uri_collectible",
+        "outputs": [
+            {
+                "name": "token_uri_len",
+                "type": "felt"
+            },
+            {
+                "name": "token_uri",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "owner",
+                "type": "felt"
+            }
+        ],
+        "name": "get_donators_count",
+        "outputs": [
+            {
+                "name": "donators",
+                "type": "felt"
             }
         ],
         "stateMutability": "view",

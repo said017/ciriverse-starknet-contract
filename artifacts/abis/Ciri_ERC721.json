@@ -101,14 +101,6 @@
             {
                 "name": "owner",
                 "type": "felt"
-            },
-            {
-                "name": "base_token_uri_len",
-                "type": "felt"
-            },
-            {
-                "name": "base_token_uri",
-                "type": "felt*"
             }
         ],
         "name": "constructor",

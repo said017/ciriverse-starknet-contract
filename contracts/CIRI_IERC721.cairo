@@ -31,6 +31,6 @@ namespace CIRI_IERC721 {
     func tokenURI(token_id: Uint256) -> (token_uri_len: felt, token_uri: felt*) {
     }
 
-    func mint(to: felt, base_token_uri_len: felt, base_token_uri: felt*) {
+    func mint(to: felt, base_token_uri_len: felt, base_token_uri: felt*) -> (token_id: Uint256) {
     }
 }

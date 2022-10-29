@@ -32,7 +32,6 @@ from openzeppelin.token.erc721.library import ERC721
 struct Creator {
     profile_id: Uint256,
     creator_nickname: felt,
-    pic: felt,
     funds: Uint256,
     milestone: Uint256,
 }
@@ -131,6 +130,14 @@ func collectible_token_uri(token_id : Uint256, index : felt, idx: felt) -> (uri 
 func collectible_token_uri_len(token_id : Uint256, index : felt) -> (res : felt){
 }
 
+@storage_var
+func profile_img_uri(token_id : Uint256, idx: felt) -> (uri : felt){
+}
+
+@storage_var
+func profile_img_uri_len(token_id : Uint256) -> (res : felt){
+}
+
 // profile counter
 @storage_var
 func profile_counter() -> (number: Uint256) {
@@ -198,7 +205,7 @@ func create_profile{
     pedersen_ptr: HashBuiltin*,
     range_check_ptr,
     bitwise_ptr : BitwiseBuiltin*
-}(nickname: felt, pic: felt) -> (profile_id : Uint256) {
+}(nickname: felt, pic_len: felt, pic: felt*) -> (profile_id : Uint256) {
     alloc_locals;
     let caller: felt = get_caller_address();
     // // struct_array[0] = DataTypes.ProfileStruct(pub_count=publications_count, follow_module=vars.follow_module, follow_nft=0, handle=vars.handle, image_uri=vars.image_uri, follow_nft_uri=vars.follow_nft_uri);
@@ -235,10 +242,24 @@ func create_profile{
 
     profile_counter.write(profile_id);
 
+    _setProfileURI(profile_id, pic_len, pic);
+    profile_img_uri_len.write(profile_id, pic_len);
+
     // write also creators array
-    creators_by_id.write(profile_id, Creator(profile_id=profile_id, creator_nickname=nickname, pic=pic, funds=zero_value, milestone=zero_value));
+    creators_by_id.write(profile_id, Creator(profile_id=profile_id, creator_nickname=nickname, funds=zero_value, milestone=zero_value));
 
     return (profile_id=profile_id);
+}
+
+func _setProfileURI{
+    syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr
+}(token_id : Uint256, token_uri_len : felt, token_uri : felt*){
+    if (token_uri_len == 0) {
+        return ();
+    }
+    profile_img_uri.write(token_id=token_id, idx=token_uri_len, value=[token_uri]);
+    _setProfileURI(token_id=token_id, token_uri_len=token_uri_len - 1, token_uri=token_uri + 1);
+    return ();
 }
 
 // create collectible
@@ -266,8 +287,8 @@ func create_collectible{
     _setCollectibleURI(profile_id, _collectible_index, uri_len, uri);
     collectible_token_uri_len.write(profile_id, _collectible_index, uri_len);
 
-    _collectible_index = _collectible_index + 1;
-    collectibles_by_id_index.write(profile_id, _collectible_index);
+    let _collectible_index_new : felt = _collectible_index + 1;
+    collectibles_by_id_index.write(profile_id, _collectible_index_new);
     return (profile_id=profile_id);
 }
 
@@ -330,7 +351,7 @@ func mint_collectible{
    
 
     // go mint
-    let index_counter: Uint256 = CIRI_IERC721.mint(_collectible_address, caller,  _token_uri_len, _token_uri);
+    let (index_counter) = CIRI_IERC721.mint(_collectible_address, caller,  _token_uri_len, _token_uri);
 
     // after mint, transfer the goerli to the creator
     let goerli_address: felt = goerli_token_address.read();
@@ -406,10 +427,12 @@ func donate{
     donators_milestone.write(caller,_creator_id, amount_updated);
     // update creator funds funds + 90% amount
     let (funds_updated, carry) = uint256_add(creator.funds, to_donate);
-    creators_by_id.write(_creator_id, Creator(profile_id=_creator_id, creator_nickname=creator.creator_nickname, pic=creator.pic, funds=funds_updated, milestone=creator.milestone)); 
+    creators_by_id.write(_creator_id, Creator(profile_id=_creator_id, creator_nickname=creator.creator_nickname, funds=funds_updated, milestone=creator.milestone)); 
     // token to mint value + 10% amount
     let (mint_updated, carry) = uint256_add(value_to_mint, to_mint);
     token_to_minted.write(caller, mint_updated);   
+    let (current_count) = donators_count.read(_creator_id);
+    donators_count.write(_creator_id, current_count + 1);
 
     return (amount=_amount);
 }
@@ -467,7 +490,33 @@ func set_creator_milestone{
 
     let creator : Creator = creators_by_id.read(profile_id);
 
-    creators_by_id.write(profile_id, Creator(profile_id=profile_id, creator_nickname=creator.creator_nickname, pic=creator.pic, funds=creator.funds, milestone=milestone_uint256));
+    creators_by_id.write(profile_id, Creator(profile_id=profile_id, creator_nickname=creator.creator_nickname,funds=creator.funds, milestone=milestone_uint256));
+
+    return (update_milestone=milestone_uint256);
+}
+
+// set milestone by addr
+@external
+func set_creator_milestone_by_addr{
+    syscall_ptr: felt*,
+    pedersen_ptr: HashBuiltin*,
+    range_check_ptr,
+    bitwise_ptr : BitwiseBuiltin*
+}(owner : felt, _milestone: felt) -> (update_milestone : Uint256) {
+    alloc_locals;
+    // need to check ownership once become NFTs
+    let caller: felt = get_caller_address();
+    let (profile_id: Uint256) = ERC721Ciri.tokenOfOwnerByIndex(owner, Uint256(0,0));
+    // let ownerOf: felt = ERC721.owner_of(profile_id);
+    // with_attr error_message("Caller != owner of token") {
+    //     assert ownerOf = caller;
+    // }
+
+    let milestone_uint256 : Uint256 = felt_to_uint256(_milestone);
+
+    let creator : Creator = creators_by_id.read(profile_id);
+
+    creators_by_id.write(profile_id, Creator(profile_id=profile_id, creator_nickname=creator.creator_nickname,funds=creator.funds, milestone=milestone_uint256));
 
     return (update_milestone=milestone_uint256);
 }
@@ -531,6 +580,16 @@ func setCiriAddress{pedersen_ptr: HashBuiltin*, syscall_ptr: felt*, range_check_
     return ();
 }
 
+@external
+func setCollectibleAddress{pedersen_ptr: HashBuiltin*, syscall_ptr: felt*, range_check_ptr}(
+    col_address: felt
+) {
+    Ownable.assert_only_owner();
+    collectible_address.write(col_address);
+    return ();
+}
+
+
 // set approve
 @external
 func approve{
@@ -573,6 +632,17 @@ func get_profile_milestone{
 }
 
 @view    
+func get_profile_milestone_by_addr{
+        syscall_ptr : felt*,
+        pedersen_ptr : HashBuiltin*,
+        range_check_ptr
+    }(owner: felt) -> (milestone: Uint256) {
+    let (tokenId: Uint256) = ERC721Ciri.tokenOfOwnerByIndex(owner, Uint256(0,0));
+    let creator : Creator = creators_by_id.read(tokenId);
+    return (milestone=creator.milestone);
+}
+
+@view    
 func get_donated_fund{
         syscall_ptr : felt*,
         pedersen_ptr : HashBuiltin*,
@@ -596,10 +666,40 @@ func get_token_to_mint{
     syscall_ptr : felt*,
     pedersen_ptr : HashBuiltin*,
     range_check_ptr
-    }(profile_id : Uint256) -> (name : felt, pic : felt, funds : Uint256, creator_id : Uint256) {
+    }(profile_id : Uint256) -> (name : felt, funds : Uint256, creator_id : Uint256) {
     let creator : Creator = creators_by_id.read(profile_id);
-    return (creator.creator_nickname, creator.pic, creator.funds, creator.profile_id);
+    return (creator.creator_nickname,  creator.funds, creator.profile_id);
 }
+
+@view func get_profile_img_id{
+    syscall_ptr : felt*,
+    pedersen_ptr : HashBuiltin*,
+    range_check_ptr
+    }(profile_id : Uint256) -> (uri_img_len: felt, uri_img: felt*) {
+    alloc_locals;
+    // get collectible uri len
+    let (local _token_uri) = alloc();
+    let (profile_img_len) = profile_img_uri_len.read(profile_id);
+    _getProfileURI(token_id=profile_id, token_uri_len=profile_img_len, token_uri=_token_uri);
+    return (profile_img_len,_token_uri);
+}
+
+func _getProfileURI{
+    syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr
+}( token_id : Uint256, token_uri_len : felt, token_uri : felt*){
+    alloc_locals;
+    if (token_uri_len == 0) {
+        return ();
+    }
+    let (base) = profile_img_uri.read(token_id, idx=token_uri_len);
+    assert [token_uri] = base;
+   _getProfileURI( token_id=token_id, 
+       token_uri_len=token_uri_len - 1, token_uri=token_uri + 1
+    );
+    return ();
+}
+
+
 
 @view
 func tokenURI{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}(
@@ -668,6 +768,8 @@ func isApprovedForAll{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_chec
     return (is_approved,);
 }
 
+
+
 @view    
 func get_collectible_at{
         syscall_ptr : felt*,
@@ -677,6 +779,98 @@ func get_collectible_at{
     let _collectible : Collectible = collectibles_by_id.read(profile_id, index);
     return (collectible=_collectible);
 }
+
+@view func get_collectibles{
+    syscall_ptr : felt*,
+    pedersen_ptr : HashBuiltin*,
+    range_check_ptr
+    }(owner : felt) -> (collectible_len : felt, collectible : Collectible*) {
+    alloc_locals;
+    // get collectible uri len
+    let (profile_id: Uint256) = ERC721Ciri.tokenOfOwnerByIndex(owner, Uint256(0,0));
+    let (local _collectibles: Collectible*) = alloc();
+    let (collectible_len) = collectibles_by_id_index.read(profile_id);
+    _getCollectibles(token_id=profile_id, collectible_len=collectible_len, collectible=_collectibles);
+    return (collectible_len,_collectibles);
+}
+
+func _getCollectibles{
+    syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr
+}( token_id : Uint256, collectible_len : felt, collectible : Collectible*){
+    alloc_locals;
+    if (collectible_len == 0) {
+        return ();
+    }
+    let (base) =  collectibles_by_id.read(token_id, index=collectible_len);
+    assert [collectible] = base;
+   _getCollectibles( token_id=token_id, 
+       collectible_len=collectible_len - 1, collectible=collectible + 1
+    );
+    return ();
+}
+
+@view
+func tokenOfOwnerByIndex{pedersen_ptr: HashBuiltin*, syscall_ptr: felt*, range_check_ptr}(
+    owner: felt, index: Uint256
+) -> (tokenId: Uint256) {
+    let (tokenId: Uint256) = ERC721Ciri.tokenOfOwnerByIndex(owner, index);
+    return (tokenId=tokenId);
+}
+
+@view
+func get_profile_by_addr{pedersen_ptr: HashBuiltin*, syscall_ptr: felt*, range_check_ptr}(
+    owner: felt
+) -> (name : felt, funds : Uint256, creator_id : Uint256) {
+    let (tokenId: Uint256) = ERC721Ciri.tokenOfOwnerByIndex(owner, Uint256(0,0));
+    let creator : Creator = creators_by_id.read(tokenId);
+    return (creator.creator_nickname,  creator.funds, creator.profile_id);
+}
+
+
+@view    
+func get_collectible_count{
+        syscall_ptr : felt*,
+        pedersen_ptr : HashBuiltin*,
+        range_check_ptr
+    }(profile_id: Uint256) -> (count: felt) {
+    let _count : felt = collectibles_by_id_index.read(profile_id);
+    return (count=_count);
+}
+
+@view    
+func get_owner_collectible{
+        syscall_ptr : felt*,
+        pedersen_ptr : HashBuiltin*,
+        range_check_ptr
+    }(token_id: Uint256) -> (owner: felt) {
+    let _collectible_address: felt = collectible_address.read();
+    let _owner: felt  = CIRI_IERC721.ownerOf(_collectible_address, token_id);
+    return (owner=_owner);
+}
+
+@view    
+func get_uri_collectible{
+        syscall_ptr : felt*,
+        pedersen_ptr : HashBuiltin*,
+        range_check_ptr
+    }(token_id: Uint256) -> (token_uri_len: felt, token_uri: felt*) {
+    let _collectible_address: felt = collectible_address.read();
+    let (_token_uri_len: felt, _token_uri: felt*)  = CIRI_IERC721.tokenURI(_collectible_address, token_id);
+    return (token_uri_len=_token_uri_len, token_uri=_token_uri);
+}
+
+@view    
+func get_donators_count{
+        syscall_ptr : felt*,
+        pedersen_ptr : HashBuiltin*,
+        range_check_ptr
+    }(owner: felt) -> (donators: felt) {
+    let (tokenId: Uint256) = ERC721Ciri.tokenOfOwnerByIndex(owner, Uint256(0,0));
+    let (current_count) = donators_count.read(tokenId);
+    return (donators=current_count);
+}
+
+ 
 
 func get_keccak_hash{
     syscall_ptr : felt*,

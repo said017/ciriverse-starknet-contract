@@ -46,8 +46,8 @@ func constructor{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr
     name: felt,
     symbol: felt,
     owner: felt,
-    base_token_uri_len: felt,
-    base_token_uri: felt*,
+    // base_token_uri_len: felt,
+    // base_token_uri: felt*,
 ) {
     ERC721.initializer(name, symbol);
     ERC721Enumerable.initializer();

@@ -37,4 +37,7 @@ namespace ICIRIERC20 {
 
     func mint(to: felt, amount: Uint256) {
     }
+
+    func burn_tokens(recipient: felt, amount_ask: Uint256) -> (amount_burn: Uint256) {
+    }   
 }

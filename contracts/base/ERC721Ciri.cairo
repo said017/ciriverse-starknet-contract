@@ -107,6 +107,14 @@ namespace ERC721Ciri {
         return (token_uri_len=token_uri_len, token_uri=token_uri);
     }
 
+    @view
+    func tokenOfOwnerByIndex{pedersen_ptr: HashBuiltin*, syscall_ptr: felt*, range_check_ptr}(
+        owner: felt, index: Uint256
+    ) -> (tokenId: Uint256) {
+        let (tokenId: Uint256) = ERC721Enumerable.token_of_owner_by_index(owner, index);
+        return (tokenId=tokenId);
+    }
+
     //
     // Externals
     //
@@ -149,10 +157,10 @@ namespace ERC721Ciri {
 
     func mint{pedersen_ptr : HashBuiltin*, syscall_ptr : felt*, range_check_ptr}(
         to : felt, token_id : Uint256
-    ) {
+    ) -> (ret_token_id: Uint256) {
         // Ownable.assert_only_owner()
         ERC721Enumerable._mint(to, token_id);
-        return ();
+        return (ret_token_id=token_id);
     }
 
     func burn{pedersen_ptr : HashBuiltin*, syscall_ptr : felt*, range_check_ptr}(token_id : Uint256) {

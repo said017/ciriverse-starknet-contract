@@ -107,6 +107,12 @@ func decreaseAllowance{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_che
 }
 
 @external
+func burn_tokens{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(recipient: felt, amount_ask: Uint256) -> (amount_burn: Uint256) {
+    ERC20._burn(recipient, amount_ask);
+    return (amount_burn=amount_ask);
+}
+
+@external
 func mint{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(
     to: felt, amount: Uint256
 ) {
