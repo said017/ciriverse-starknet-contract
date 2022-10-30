@@ -272,6 +272,31 @@
     {
         "inputs": [
             {
+                "name": "profile_id",
+                "type": "Uint256"
+            },
+            {
+                "name": "index",
+                "type": "felt"
+            }
+        ],
+        "name": "get_collectible_img_id",
+        "outputs": [
+            {
+                "name": "uri_img_len",
+                "type": "felt"
+            },
+            {
+                "name": "uri_img",
+                "type": "felt*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "name": "_creator_id",
                 "type": "Uint256"
             },

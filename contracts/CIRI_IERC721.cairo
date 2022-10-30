@@ -33,4 +33,7 @@ namespace CIRI_IERC721 {
 
     func mint(to: felt, base_token_uri_len: felt, base_token_uri: felt*) -> (token_id: Uint256) {
     }
+
+    func tokenOfOwnerByIndex(owner: felt, index: Uint256) -> (tokenId: Uint256) {
+    }
 }

@@ -106,6 +106,31 @@ func create_proposal{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check
     return ();
 }
 
+// create proposal by addr.
+@external
+func create_proposal_by_addr{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(
+    option1: felt, option2: felt, time_to_lock: felt
+) {
+    let caller: felt = get_caller_address();
+    let _ciri_address: felt = ciri_address_storage.read();
+    // check if caller owned the profile_id
+     let (profile_id: Uint256) = CIRI_IERC721.tokenOfOwnerByIndex(_ciri_address, caller, Uint256(0,0));
+    // read index first
+    let _proposal_index: felt = proposal_index.read(profile_id); 
+    let (block_timestamp) = get_block_timestamp();
+    // deadline: felt,
+    // option1: felt,
+    // option2: felt,
+    // votesOpt1: felt,
+    // votesOpt2: felt,
+    // executed: felt,
+    // result: felt,
+    proposals.write(profile_id, _proposal_index, Proposal(deadline=block_timestamp + time_to_lock, option1=option1, option2=option2, votesOpt1=0, votesOpt2=0, executed=0, result=0));   
+    let _proposal_index_new : felt = _proposal_index + 1;
+    proposal_index.write(profile_id, _proposal_index_new);   
+    return ();
+}
+
 // vote proposal.
 @external
 func vote_proposal{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(
@@ -188,9 +213,28 @@ func get_proposal{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_pt
     return (proposal=proposal);
 }
 
+// Returns proposal by addr at index
+@view
+func get_proposal_by_addr{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(owner: felt, index: felt) -> (proposal : Proposal) {
+    let _ciri_address: felt = ciri_address_storage.read();
+    let (profile_id: Uint256) = CIRI_IERC721.tokenOfOwnerByIndex(_ciri_address, owner, Uint256(0,0));
+    let proposal : Proposal = proposals.read(profile_id, index);
+    return (proposal=proposal);
+}
+
 // Returns proposal count
 @view
-func get_num_proposal{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(profile_id: Uint256, index: felt) -> (proposal_count : felt) {
+func get_num_proposal{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(profile_id: Uint256) -> (proposal_count : felt) {
+    let proposal_count  : felt = proposal_index.read(profile_id);
+    return (proposal_count=proposal_count);
+}
+
+// Returns proposal count by addr
+@view
+func get_num_proposal_by_addr{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(owner: felt) -> (proposal_count : felt) {
+    // let ownerOf: felt = CIRI_IERC721.ownerOf(_ciri_address, profile_id);
+    let _ciri_address: felt = ciri_address_storage.read();
+    let (profile_id: Uint256) = CIRI_IERC721.tokenOfOwnerByIndex(_ciri_address, owner, Uint256(0,0));
     let proposal_count  : felt = proposal_index.read(profile_id);
     return (proposal_count=proposal_count);
 }

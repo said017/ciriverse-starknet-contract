@@ -73,6 +73,10 @@
                 "type": "const",
                 "value": 0
             },
+            "__main__.CIRI_IERC721.TOKENOFOWNERBYINDEX_SELECTOR": {
+                "type": "const",
+                "value": 1495235351872889917991459503981207085696761033763427035437578338428157164409
+            },
             "__main__.CIRI_IERC721.TOKENURI_SELECTOR": {
                 "type": "const",
                 "value": 527349597080429316600677333550588288293424769527062261567739596074387138637

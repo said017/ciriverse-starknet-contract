@@ -99,6 +99,25 @@
     {
         "inputs": [
             {
+                "name": "option1",
+                "type": "felt"
+            },
+            {
+                "name": "option2",
+                "type": "felt"
+            },
+            {
+                "name": "time_to_lock",
+                "type": "felt"
+            }
+        ],
+        "name": "create_proposal_by_addr",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "name": "profile_id",
                 "type": "Uint256"
             },
@@ -158,15 +177,49 @@
     {
         "inputs": [
             {
-                "name": "profile_id",
-                "type": "Uint256"
+                "name": "owner",
+                "type": "felt"
             },
             {
                 "name": "index",
                 "type": "felt"
             }
         ],
+        "name": "get_proposal_by_addr",
+        "outputs": [
+            {
+                "name": "proposal",
+                "type": "Proposal"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "profile_id",
+                "type": "Uint256"
+            }
+        ],
         "name": "get_num_proposal",
+        "outputs": [
+            {
+                "name": "proposal_count",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "owner",
+                "type": "felt"
+            }
+        ],
+        "name": "get_num_proposal_by_addr",
         "outputs": [
             {
                 "name": "proposal_count",

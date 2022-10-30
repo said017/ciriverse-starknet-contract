@@ -283,9 +283,10 @@ func create_collectible{
     // gated: felt,
     // uri_len: felt,
     // uri: felt*,
+    collectible_token_uri_len.write(profile_id, _collectible_index, uri_len);
     collectibles_by_id.write(profile_id, _collectible_index, Collectible(profile_id=profile_id,  price_to_mint=price_to_mint, gated=gated, minted=0, token_id=Uint256(0,0))); // , uri_len=uri_len, uri=uri
     _setCollectibleURI(profile_id, _collectible_index, uri_len, uri);
-    collectible_token_uri_len.write(profile_id, _collectible_index, uri_len);
+    
 
     let _collectible_index_new : felt = _collectible_index + 1;
     collectibles_by_id_index.write(profile_id, _collectible_index_new);
@@ -372,6 +373,20 @@ func _setCollectibleURI{
     collectible_token_uri.write(token_id=token_id, index=index, idx=token_uri_len, value=[token_uri]);
     _setCollectibleURI(token_id=token_id, index=index, token_uri_len=token_uri_len - 1, token_uri=token_uri + 1);
     return ();
+}
+
+
+@view func get_collectible_img_id{
+    syscall_ptr : felt*,
+    pedersen_ptr : HashBuiltin*,
+    range_check_ptr
+    }(profile_id : Uint256, index: felt) -> (uri_img_len: felt, uri_img: felt*) {
+    alloc_locals;
+    // get collectible uri len
+    let (local _token_uri) = alloc();
+    let _token_uri_len : felt =  collectible_token_uri_len.read(profile_id, index);
+    _getCollectibleURI(token_id=profile_id,index=index, token_uri_len=_token_uri_len, token_uri=_token_uri);
+    return (_token_uri_len,_token_uri);
 }
 
 func _getCollectibleURI{
@@ -801,7 +816,8 @@ func _getCollectibles{
     if (collectible_len == 0) {
         return ();
     }
-    let (base) =  collectibles_by_id.read(token_id, index=collectible_len);
+    // error because index 0 return nothing, but should return data
+    let (base) =  collectibles_by_id.read(token_id, index=collectible_len - 1);
     assert [collectible] = base;
    _getCollectibles( token_id=token_id, 
        collectible_len=collectible_len - 1, collectible=collectible + 1
