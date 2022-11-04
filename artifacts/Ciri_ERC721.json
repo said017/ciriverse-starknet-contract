@@ -395,7 +395,7 @@
                 "selector": "0x2962ba17806af798afa6eaf4aa8c93a9fb60a3e305045b6eea33435086cae9"
             },
             {
-                "offset": "0x996",
+                "offset": "0x99a",
                 "selector": "0x3e8cfd4725c1e28fa4a6e3e468b4fcf75367166b850ac5f04e33ec843e82c1"
             },
             {
@@ -411,7 +411,7 @@
                 "selector": "0x12a7823b0c6bee58f8c694888f32f862c6584caa8afa0242de046d298ba684d"
             },
             {
-                "offset": "0x9ba",
+                "offset": "0x9be",
                 "selector": "0x14a390f291e2e1f29874769efdef47ddad94d76f77ff516fad206a385e8995f"
             },
             {
@@ -447,7 +447,7 @@
                 "selector": "0x2e4263afad30923c891518314c3c95dbe830a16874e8abc5777a9a20b54c76e"
             },
             {
-                "offset": "0x96d",
+                "offset": "0x971",
                 "selector": "0x2f0b3c5710379609eb5495f1ecd348cb28167711b73609fe565a72734550354"
             },
             {
@@ -3374,12 +3374,14 @@
             "0x480a7ff87fff8000",
             "0x480a7ff77fff8000",
             "0x480a7ff97fff8000",
+            "0x1104800180018000",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffce3",
             "0x480a7ffa7fff8000",
             "0x480a7ffb7fff8000",
             "0x480a7ffc7fff8000",
             "0x480a7ffd7fff8000",
             "0x1104800180018000",
-            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffdb3",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffdb1",
             "0x48127ffe7fff8000",
             "0x48127ffc7fff8000",
             "0x48127ffd7fff8000",
@@ -3390,13 +3392,15 @@
             "0x480a7ff87fff8000",
             "0x480a7ffa7fff8000",
             "0x1104800180018000",
-            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffde0",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffcd2",
+            "0x1104800180018000",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffddc",
             "0x480680017fff8000",
             "0x1",
             "0x480680017fff8000",
             "0x0",
             "0x1104800180018000",
-            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffff879",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffff875",
             "0x40137ffe7fff8000",
             "0x40137fff7fff8001",
             "0x48127ffc7fff8000",
@@ -3406,20 +3410,20 @@
             "0x480a80007fff8000",
             "0x480a80017fff8000",
             "0x1104800180018000",
-            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffbdf",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffbdb",
             "0x480a80007fff8000",
             "0x480a80017fff8000",
             "0x480a7ffc7fff8000",
             "0x480a7ffd7fff8000",
             "0x1104800180018000",
-            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffd9",
+            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffd5",
             "0x48127ffe7fff8000",
             "0x48127ffc7fff8000",
             "0x48127ffd7fff8000",
             "0x480a80007fff8000",
             "0x480a80017fff8000",
             "0x1104800180018000",
-            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffdd6",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffdd2",
             "0x48127ffe7fff8000",
             "0x48127ffc7fff8000",
             "0x48127ffd7fff8000",
@@ -3454,7 +3458,7 @@
             "0x482680017ffd8000",
             "0x2",
             "0x1104800180018000",
-            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffbc",
+            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffba",
             "0x48127ffd7fff8000",
             "0x1104800180018000",
             "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffe3",
@@ -3468,14 +3472,14 @@
             "0x480a7ff97fff8000",
             "0x480a7ffb7fff8000",
             "0x1104800180018000",
-            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffc86",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffc82",
             "0x48127ffe7fff8000",
             "0x48127ffc7fff8000",
             "0x48127ffd7fff8000",
             "0x480a7ffc7fff8000",
             "0x480a7ffd7fff8000",
             "0x1104800180018000",
-            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffbd1",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffbcd",
             "0x208b7fff7fff7ffe",
             "0x482680017ffd8000",
             "0x2",
@@ -3501,7 +3505,7 @@
             "0x480a7ffc7fff8000",
             "0x480a7ffd7fff8000",
             "0x1104800180018000",
-            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffc7a",
+            "0x800000000000010fffffffffffffffffffffffffffffffffffffffffffffc76",
             "0x480a7ffd7fff8000",
             "0x208b7fff7fff7ffe",
             "0x40780017fff7fff",
@@ -68172,25 +68176,25 @@
                         },
                         "parent_location": [
                             {
-                                "end_col": 24,
-                                "end_line": 64,
+                                "end_col": 46,
+                                "end_line": 40,
                                 "input_file": {
-                                    "filename": "/mnt/d/blokchain-code/ZKRollup/ciriverse-cairo/contracts/libraries/ERC721_Collectible.cairo"
+                                    "filename": "/home/linuxbrew/.linuxbrew/opt/python@3.9/lib/python3.9/site-packages/openzeppelin/access/ownable/library.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 78,
-                                        "end_line": 172,
+                                        "end_col": 32,
+                                        "end_line": 171,
                                         "input_file": {
                                             "filename": "contracts/Ciri_ERC721.cairo"
                                         },
                                         "start_col": 5,
-                                        "start_line": 172
+                                        "start_line": 171
                                     },
                                     "While trying to retrieve the implicit argument 'syscall_ptr' in:"
                                 ],
-                                "start_col": 5,
-                                "start_line": 64
+                                "start_col": 28,
+                                "start_line": 40
                             },
                             "While expanding the reference 'syscall_ptr' in:"
                         ],
@@ -68213,25 +68217,25 @@
                         },
                         "parent_location": [
                             {
-                                "end_col": 53,
-                                "end_line": 64,
+                                "end_col": 74,
+                                "end_line": 40,
                                 "input_file": {
-                                    "filename": "/mnt/d/blokchain-code/ZKRollup/ciriverse-cairo/contracts/libraries/ERC721_Collectible.cairo"
+                                    "filename": "/home/linuxbrew/.linuxbrew/opt/python@3.9/lib/python3.9/site-packages/openzeppelin/access/ownable/library.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 78,
-                                        "end_line": 172,
+                                        "end_col": 32,
+                                        "end_line": 171,
                                         "input_file": {
                                             "filename": "contracts/Ciri_ERC721.cairo"
                                         },
                                         "start_col": 5,
-                                        "start_line": 172
+                                        "start_line": 171
                                     },
                                     "While trying to retrieve the implicit argument 'pedersen_ptr' in:"
                                 ],
-                                "start_col": 26,
-                                "start_line": 64
+                                "start_col": 48,
+                                "start_line": 40
                             },
                             "While expanding the reference 'pedersen_ptr' in:"
                         ],
@@ -68254,25 +68258,25 @@
                         },
                         "parent_location": [
                             {
-                                "end_col": 70,
-                                "end_line": 64,
+                                "end_col": 91,
+                                "end_line": 40,
                                 "input_file": {
-                                    "filename": "/mnt/d/blokchain-code/ZKRollup/ciriverse-cairo/contracts/libraries/ERC721_Collectible.cairo"
+                                    "filename": "/home/linuxbrew/.linuxbrew/opt/python@3.9/lib/python3.9/site-packages/openzeppelin/access/ownable/library.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 78,
-                                        "end_line": 172,
+                                        "end_col": 32,
+                                        "end_line": 171,
                                         "input_file": {
                                             "filename": "contracts/Ciri_ERC721.cairo"
                                         },
                                         "start_col": 5,
-                                        "start_line": 172
+                                        "start_line": 171
                                     },
                                     "While trying to retrieve the implicit argument 'range_check_ptr' in:"
                                 ],
-                                "start_col": 55,
-                                "start_line": 64
+                                "start_col": 76,
+                                "start_line": 40
                             },
                             "While expanding the reference 'range_check_ptr' in:"
                         ],
@@ -68288,28 +68292,16 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 22,
-                        "end_line": 169,
+                        "end_col": 32,
+                        "end_line": 171,
                         "input_file": {
                             "filename": "contracts/Ciri_ERC721.cairo"
                         },
-                        "parent_location": [
-                            {
-                                "end_col": 41,
-                                "end_line": 172,
-                                "input_file": {
-                                    "filename": "contracts/Ciri_ERC721.cairo"
-                                },
-                                "start_col": 33,
-                                "start_line": 172
-                            },
-                            "While expanding the reference 'token_id' in:"
-                        ],
                         "start_col": 5,
-                        "start_line": 169
+                        "start_line": 171
                     }
                 },
-                "2352": {
+                "2353": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__._setTokenURI"
@@ -68338,7 +68330,36 @@
                         "start_line": 169
                     }
                 },
-                "2353": {
+                "2354": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__._setTokenURI"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 22,
+                        "end_line": 169,
+                        "input_file": {
+                            "filename": "contracts/Ciri_ERC721.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 41,
+                                "end_line": 172,
+                                "input_file": {
+                                    "filename": "contracts/Ciri_ERC721.cairo"
+                                },
+                                "start_col": 33,
+                                "start_line": 172
+                            },
+                            "While expanding the reference 'token_id' in:"
+                        ],
+                        "start_col": 5,
+                        "start_line": 169
+                    }
+                },
+                "2355": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__._setTokenURI"
@@ -68367,7 +68388,7 @@
                         "start_line": 169
                     }
                 },
-                "2354": {
+                "2356": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__._setTokenURI"
@@ -68396,7 +68417,7 @@
                         "start_line": 169
                     }
                 },
-                "2355": {
+                "2357": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__._setTokenURI"
@@ -68413,7 +68434,7 @@
                         "start_line": 172
                     }
                 },
-                "2357": {
+                "2359": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__._setTokenURI"
@@ -68466,7 +68487,7 @@
                         "start_line": 64
                     }
                 },
-                "2358": {
+                "2360": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__._setTokenURI"
@@ -68519,7 +68540,7 @@
                         "start_line": 64
                     }
                 },
-                "2359": {
+                "2361": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__._setTokenURI"
@@ -68572,7 +68593,7 @@
                         "start_line": 64
                     }
                 },
-                "2360": {
+                "2362": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__._setTokenURI"
@@ -68589,7 +68610,7 @@
                         "start_line": 173
                     }
                 },
-                "2361": {
+                "2363": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -68607,7 +68628,7 @@
                         "start_line": 180
                     }
                 },
-                "2363": {
+                "2365": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -68623,25 +68644,25 @@
                         },
                         "parent_location": [
                             {
-                                "end_col": 33,
-                                "end_line": 13,
+                                "end_col": 46,
+                                "end_line": 40,
                                 "input_file": {
-                                    "filename": "autogen/starknet/storage_var/index_counter/decl.cairo"
+                                    "filename": "/home/linuxbrew/.linuxbrew/opt/python@3.9/lib/python3.9/site-packages/openzeppelin/access/ownable/library.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 55,
-                                        "end_line": 182,
+                                        "end_col": 32,
+                                        "end_line": 181,
                                         "input_file": {
                                             "filename": "contracts/Ciri_ERC721.cairo"
                                         },
-                                        "start_col": 35,
-                                        "start_line": 182
+                                        "start_col": 5,
+                                        "start_line": 181
                                     },
                                     "While trying to retrieve the implicit argument 'syscall_ptr' in:"
                                 ],
-                                "start_col": 15,
-                                "start_line": 13
+                                "start_col": 28,
+                                "start_line": 40
                             },
                             "While expanding the reference 'syscall_ptr' in:"
                         ],
@@ -68649,7 +68670,7 @@
                         "start_line": 177
                     }
                 },
-                "2364": {
+                "2366": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -68665,25 +68686,25 @@
                         },
                         "parent_location": [
                             {
-                                "end_col": 61,
-                                "end_line": 13,
+                                "end_col": 74,
+                                "end_line": 40,
                                 "input_file": {
-                                    "filename": "autogen/starknet/storage_var/index_counter/decl.cairo"
+                                    "filename": "/home/linuxbrew/.linuxbrew/opt/python@3.9/lib/python3.9/site-packages/openzeppelin/access/ownable/library.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 55,
-                                        "end_line": 182,
+                                        "end_col": 32,
+                                        "end_line": 181,
                                         "input_file": {
                                             "filename": "contracts/Ciri_ERC721.cairo"
                                         },
-                                        "start_col": 35,
-                                        "start_line": 182
+                                        "start_col": 5,
+                                        "start_line": 181
                                     },
                                     "While trying to retrieve the implicit argument 'pedersen_ptr' in:"
                                 ],
-                                "start_col": 35,
-                                "start_line": 13
+                                "start_col": 48,
+                                "start_line": 40
                             },
                             "While expanding the reference 'pedersen_ptr' in:"
                         ],
@@ -68691,7 +68712,7 @@
                         "start_line": 177
                     }
                 },
-                "2365": {
+                "2367": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -68707,25 +68728,25 @@
                         },
                         "parent_location": [
                             {
-                                "end_col": 78,
-                                "end_line": 13,
+                                "end_col": 91,
+                                "end_line": 40,
                                 "input_file": {
-                                    "filename": "autogen/starknet/storage_var/index_counter/decl.cairo"
+                                    "filename": "/home/linuxbrew/.linuxbrew/opt/python@3.9/lib/python3.9/site-packages/openzeppelin/access/ownable/library.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 55,
-                                        "end_line": 182,
+                                        "end_col": 32,
+                                        "end_line": 181,
                                         "input_file": {
                                             "filename": "contracts/Ciri_ERC721.cairo"
                                         },
-                                        "start_col": 35,
-                                        "start_line": 182
+                                        "start_col": 5,
+                                        "start_line": 181
                                     },
                                     "While trying to retrieve the implicit argument 'range_check_ptr' in:"
                                 ],
-                                "start_col": 63,
-                                "start_line": 13
+                                "start_col": 76,
+                                "start_line": 40
                             },
                             "While expanding the reference 'range_check_ptr' in:"
                         ],
@@ -68733,7 +68754,25 @@
                         "start_line": 177
                     }
                 },
-                "2366": {
+                "2368": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.mint"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 32,
+                        "end_line": 181,
+                        "input_file": {
+                            "filename": "contracts/Ciri_ERC721.cairo"
+                        },
+                        "start_col": 5,
+                        "start_line": 181
+                    }
+                },
+                "2370": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -68751,7 +68790,7 @@
                         "start_line": 182
                     }
                 },
-                "2368": {
+                "2372": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -68769,7 +68808,7 @@
                         "start_line": 183
                     }
                 },
-                "2370": {
+                "2374": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -68787,7 +68826,7 @@
                         "start_line": 183
                     }
                 },
-                "2372": {
+                "2376": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -68805,7 +68844,7 @@
                         "start_line": 183
                     }
                 },
-                "2374": {
+                "2378": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -68835,7 +68874,7 @@
                         "start_line": 183
                     }
                 },
-                "2375": {
+                "2379": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -68865,7 +68904,7 @@
                         "start_line": 183
                     }
                 },
-                "2376": {
+                "2380": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -68919,7 +68958,7 @@
                         "start_line": 23
                     }
                 },
-                "2377": {
+                "2381": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -68973,7 +69012,7 @@
                         "start_line": 23
                     }
                 },
-                "2378": {
+                "2382": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69027,7 +69066,7 @@
                         "start_line": 23
                     }
                 },
-                "2379": {
+                "2383": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69057,108 +69096,6 @@
                         "start_line": 178
                     }
                 },
-                "2380": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.mint"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 36,
-                        "end_line": 183,
-                        "input_file": {
-                            "filename": "contracts/Ciri_ERC721.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 36,
-                                "end_line": 183,
-                                "input_file": {
-                                    "filename": "contracts/Ciri_ERC721.cairo"
-                                },
-                                "parent_location": [
-                                    {
-                                        "end_col": 39,
-                                        "end_line": 185,
-                                        "input_file": {
-                                            "filename": "contracts/Ciri_ERC721.cairo"
-                                        },
-                                        "start_col": 22,
-                                        "start_line": 185
-                                    },
-                                    "While expanding the reference 'index_counter_new' in:"
-                                ],
-                                "start_col": 9,
-                                "start_line": 183
-                            },
-                            "While auto generating local variable for 'index_counter_new'."
-                        ],
-                        "start_col": 9,
-                        "start_line": 183
-                    }
-                },
-                "2381": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.mint"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 36,
-                        "end_line": 183,
-                        "input_file": {
-                            "filename": "contracts/Ciri_ERC721.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 36,
-                                "end_line": 183,
-                                "input_file": {
-                                    "filename": "contracts/Ciri_ERC721.cairo"
-                                },
-                                "parent_location": [
-                                    {
-                                        "end_col": 39,
-                                        "end_line": 185,
-                                        "input_file": {
-                                            "filename": "contracts/Ciri_ERC721.cairo"
-                                        },
-                                        "start_col": 22,
-                                        "start_line": 185
-                                    },
-                                    "While expanding the reference 'index_counter_new' in:"
-                                ],
-                                "start_col": 9,
-                                "start_line": 183
-                            },
-                            "While auto generating local variable for 'index_counter_new'."
-                        ],
-                        "start_col": 9,
-                        "start_line": 183
-                    }
-                },
-                "2382": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.mint"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 40,
-                        "end_line": 185,
-                        "input_file": {
-                            "filename": "contracts/Ciri_ERC721.cairo"
-                        },
-                        "start_col": 5,
-                        "start_line": 185
-                    }
-                },
                 "2384": {
                     "accessible_scopes": [
                         "__main__",
@@ -69182,13 +69119,13 @@
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 35,
-                                        "end_line": 187,
+                                        "end_col": 39,
+                                        "end_line": 185,
                                         "input_file": {
                                             "filename": "contracts/Ciri_ERC721.cairo"
                                         },
-                                        "start_col": 18,
-                                        "start_line": 187
+                                        "start_col": 22,
+                                        "start_line": 185
                                     },
                                     "While expanding the reference 'index_counter_new' in:"
                                 ],
@@ -69224,6 +69161,66 @@
                                 },
                                 "parent_location": [
                                     {
+                                        "end_col": 39,
+                                        "end_line": 185,
+                                        "input_file": {
+                                            "filename": "contracts/Ciri_ERC721.cairo"
+                                        },
+                                        "start_col": 22,
+                                        "start_line": 185
+                                    },
+                                    "While expanding the reference 'index_counter_new' in:"
+                                ],
+                                "start_col": 9,
+                                "start_line": 183
+                            },
+                            "While auto generating local variable for 'index_counter_new'."
+                        ],
+                        "start_col": 9,
+                        "start_line": 183
+                    }
+                },
+                "2386": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.mint"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 40,
+                        "end_line": 185,
+                        "input_file": {
+                            "filename": "contracts/Ciri_ERC721.cairo"
+                        },
+                        "start_col": 5,
+                        "start_line": 185
+                    }
+                },
+                "2388": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.mint"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 36,
+                        "end_line": 183,
+                        "input_file": {
+                            "filename": "contracts/Ciri_ERC721.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 36,
+                                "end_line": 183,
+                                "input_file": {
+                                    "filename": "contracts/Ciri_ERC721.cairo"
+                                },
+                                "parent_location": [
+                                    {
                                         "end_col": 35,
                                         "end_line": 187,
                                         "input_file": {
@@ -69243,7 +69240,49 @@
                         "start_line": 183
                     }
                 },
-                "2386": {
+                "2389": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.mint"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 36,
+                        "end_line": 183,
+                        "input_file": {
+                            "filename": "contracts/Ciri_ERC721.cairo"
+                        },
+                        "parent_location": [
+                            {
+                                "end_col": 36,
+                                "end_line": 183,
+                                "input_file": {
+                                    "filename": "contracts/Ciri_ERC721.cairo"
+                                },
+                                "parent_location": [
+                                    {
+                                        "end_col": 35,
+                                        "end_line": 187,
+                                        "input_file": {
+                                            "filename": "contracts/Ciri_ERC721.cairo"
+                                        },
+                                        "start_col": 18,
+                                        "start_line": 187
+                                    },
+                                    "While expanding the reference 'index_counter_new' in:"
+                                ],
+                                "start_col": 9,
+                                "start_line": 183
+                            },
+                            "While auto generating local variable for 'index_counter_new'."
+                        ],
+                        "start_col": 9,
+                        "start_line": 183
+                    }
+                },
+                "2390": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69273,7 +69312,7 @@
                         "start_line": 178
                     }
                 },
-                "2387": {
+                "2391": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69303,7 +69342,7 @@
                         "start_line": 178
                     }
                 },
-                "2388": {
+                "2392": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69321,7 +69360,7 @@
                         "start_line": 187
                     }
                 },
-                "2390": {
+                "2394": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69375,7 +69414,7 @@
                         "start_line": 168
                     }
                 },
-                "2391": {
+                "2395": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69429,7 +69468,7 @@
                         "start_line": 168
                     }
                 },
-                "2392": {
+                "2396": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69483,7 +69522,7 @@
                         "start_line": 168
                     }
                 },
-                "2393": {
+                "2397": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69525,7 +69564,7 @@
                         "start_line": 183
                     }
                 },
-                "2394": {
+                "2398": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69567,7 +69606,7 @@
                         "start_line": 183
                     }
                 },
-                "2395": {
+                "2399": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69585,7 +69624,7 @@
                         "start_line": 189
                     }
                 },
-                "2397": {
+                "2401": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69639,7 +69678,7 @@
                         "start_line": 21
                     }
                 },
-                "2398": {
+                "2402": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69693,7 +69732,7 @@
                         "start_line": 21
                     }
                 },
-                "2399": {
+                "2403": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69747,7 +69786,7 @@
                         "start_line": 21
                     }
                 },
-                "2400": {
+                "2404": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69789,7 +69828,7 @@
                         "start_line": 183
                     }
                 },
-                "2401": {
+                "2405": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69831,7 +69870,7 @@
                         "start_line": 183
                     }
                 },
-                "2402": {
+                "2406": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69849,7 +69888,7 @@
                         "start_line": 190
                     }
                 },
-                "2403": {
+                "2407": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69905,7 +69944,7 @@
                         "start_line": 4
                     }
                 },
-                "2405": {
+                "2409": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69936,7 +69975,7 @@
                         "start_line": 3
                     }
                 },
-                "2406": {
+                "2410": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -69967,7 +70006,7 @@
                         "start_line": 4
                     }
                 },
-                "2407": {
+                "2411": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70022,7 +70061,7 @@
                         "start_line": 5
                     }
                 },
-                "2409": {
+                "2413": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70077,7 +70116,7 @@
                         "start_line": 1
                     }
                 },
-                "2410": {
+                "2414": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70108,7 +70147,7 @@
                         "start_line": 11
                     }
                 },
-                "2411": {
+                "2415": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70163,7 +70202,7 @@
                         "start_line": 5
                     }
                 },
-                "2412": {
+                "2416": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70194,7 +70233,7 @@
                         "start_line": 9
                     }
                 },
-                "2413": {
+                "2417": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70249,7 +70288,7 @@
                         "start_line": 1
                     }
                 },
-                "2414": {
+                "2418": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70304,7 +70343,7 @@
                         "start_line": 1
                     }
                 },
-                "2415": {
+                "2419": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70335,7 +70374,7 @@
                         "start_line": 2
                     }
                 },
-                "2416": {
+                "2420": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70390,7 +70429,7 @@
                         "start_line": 2
                     }
                 },
-                "2418": {
+                "2422": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70445,7 +70484,7 @@
                         "start_line": 1
                     }
                 },
-                "2419": {
+                "2423": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70476,7 +70515,7 @@
                         "start_line": 8
                     }
                 },
-                "2420": {
+                "2424": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70507,7 +70546,7 @@
                         "start_line": 1
                     }
                 },
-                "2421": {
+                "2425": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70586,7 +70625,7 @@
                         "start_line": 1
                     }
                 },
-                "2422": {
+                "2426": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70641,7 +70680,7 @@
                         "start_line": 1
                     }
                 },
-                "2423": {
+                "2427": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70696,7 +70735,7 @@
                         "start_line": 1
                     }
                 },
-                "2424": {
+                "2428": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70751,7 +70790,7 @@
                         "start_line": 3
                     }
                 },
-                "2426": {
+                "2430": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70806,7 +70845,7 @@
                         "start_line": 1
                     }
                 },
-                "2427": {
+                "2431": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70861,7 +70900,7 @@
                         "start_line": 1
                     }
                 },
-                "2428": {
+                "2432": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70916,7 +70955,7 @@
                         "start_line": 5
                     }
                 },
-                "2430": {
+                "2434": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70935,7 +70974,7 @@
                         "start_line": 177
                     }
                 },
-                "2432": {
+                "2436": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -70990,7 +71029,7 @@
                         "start_line": 1
                     }
                 },
-                "2433": {
+                "2437": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71021,7 +71060,7 @@
                         "start_line": 2
                     }
                 },
-                "2435": {
+                "2439": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71076,7 +71115,7 @@
                         "start_line": 1
                     }
                 },
-                "2436": {
+                "2440": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71131,7 +71170,7 @@
                         "start_line": 1
                     }
                 },
-                "2437": {
+                "2441": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71186,7 +71225,7 @@
                         "start_line": 2
                     }
                 },
-                "2438": {
+                "2442": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71241,7 +71280,7 @@
                         "start_line": 2
                     }
                 },
-                "2439": {
+                "2443": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71296,7 +71335,7 @@
                         "start_line": 2
                     }
                 },
-                "2440": {
+                "2444": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71327,7 +71366,7 @@
                         "start_line": 1
                     }
                 },
-                "2441": {
+                "2445": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71369,7 +71408,7 @@
                         "start_line": 194
                     }
                 },
-                "2442": {
+                "2446": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71411,7 +71450,7 @@
                         "start_line": 194
                     }
                 },
-                "2443": {
+                "2447": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71453,7 +71492,7 @@
                         "start_line": 194
                     }
                 },
-                "2444": {
+                "2448": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71471,7 +71510,7 @@
                         "start_line": 195
                     }
                 },
-                "2446": {
+                "2450": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71525,7 +71564,7 @@
                         "start_line": 40
                     }
                 },
-                "2447": {
+                "2451": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71579,7 +71618,7 @@
                         "start_line": 40
                     }
                 },
-                "2448": {
+                "2452": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71633,7 +71672,7 @@
                         "start_line": 40
                     }
                 },
-                "2449": {
+                "2453": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71663,7 +71702,7 @@
                         "start_line": 194
                     }
                 },
-                "2450": {
+                "2454": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71693,7 +71732,7 @@
                         "start_line": 194
                     }
                 },
-                "2451": {
+                "2455": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71711,7 +71750,7 @@
                         "start_line": 196
                     }
                 },
-                "2453": {
+                "2457": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71729,7 +71768,7 @@
                         "start_line": 197
                     }
                 },
-                "2454": {
+                "2458": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71808,7 +71847,7 @@
                         "start_line": 3
                     }
                 },
-                "2456": {
+                "2460": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71839,7 +71878,7 @@
                         "start_line": 1
                     }
                 },
-                "2457": {
+                "2461": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71894,7 +71933,7 @@
                         "start_line": 1
                     }
                 },
-                "2458": {
+                "2462": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -71949,7 +71988,7 @@
                         "start_line": 1
                     }
                 },
-                "2459": {
+                "2463": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72004,7 +72043,7 @@
                         "start_line": 1
                     }
                 },
-                "2460": {
+                "2464": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72059,7 +72098,7 @@
                         "start_line": 1
                     }
                 },
-                "2461": {
+                "2465": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72114,7 +72153,7 @@
                         "start_line": 1
                     }
                 },
-                "2462": {
+                "2466": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72133,7 +72172,7 @@
                         "start_line": 194
                     }
                 },
-                "2464": {
+                "2468": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72189,7 +72228,7 @@
                         "start_line": 3
                     }
                 },
-                "2466": {
+                "2470": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72244,7 +72283,7 @@
                         "start_line": 1
                     }
                 },
-                "2467": {
+                "2471": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72299,7 +72338,7 @@
                         "start_line": 1
                     }
                 },
-                "2468": {
+                "2472": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72354,7 +72393,7 @@
                         "start_line": 1
                     }
                 },
-                "2469": {
+                "2473": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72409,7 +72448,7 @@
                         "start_line": 4
                     }
                 },
-                "2471": {
+                "2475": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72464,7 +72503,7 @@
                         "start_line": 3
                     }
                 },
-                "2472": {
+                "2476": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72495,7 +72534,7 @@
                         "start_line": 1
                     }
                 },
-                "2473": {
+                "2477": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72537,7 +72576,7 @@
                         "start_line": 201
                     }
                 },
-                "2474": {
+                "2478": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72579,7 +72618,7 @@
                         "start_line": 201
                     }
                 },
-                "2475": {
+                "2479": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72621,7 +72660,7 @@
                         "start_line": 201
                     }
                 },
-                "2476": {
+                "2480": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72651,7 +72690,7 @@
                         "start_line": 202
                     }
                 },
-                "2477": {
+                "2481": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72669,7 +72708,7 @@
                         "start_line": 205
                     }
                 },
-                "2479": {
+                "2483": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72699,7 +72738,7 @@
                         "start_line": 202
                     }
                 },
-                "2480": {
+                "2484": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72717,7 +72756,7 @@
                         "start_line": 206
                     }
                 },
-                "2481": {
+                "2485": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72773,7 +72812,7 @@
                         "start_line": 4
                     }
                 },
-                "2483": {
+                "2487": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72804,7 +72843,7 @@
                         "start_line": 1
                     }
                 },
-                "2484": {
+                "2488": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72859,7 +72898,7 @@
                         "start_line": 2
                     }
                 },
-                "2486": {
+                "2490": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72914,7 +72953,7 @@
                         "start_line": 1
                     }
                 },
-                "2487": {
+                "2491": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -72945,7 +72984,7 @@
                         "start_line": 11
                     }
                 },
-                "2488": {
+                "2492": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -73000,7 +73039,7 @@
                         "start_line": 5
                     }
                 },
-                "2489": {
+                "2493": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -73031,7 +73070,7 @@
                         "start_line": 9
                     }
                 },
-                "2490": {
+                "2494": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -73110,7 +73149,7 @@
                         "start_line": 2
                     }
                 },
-                "2492": {
+                "2496": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -73141,7 +73180,7 @@
                         "start_line": 1
                     }
                 },
-                "2493": {
+                "2497": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -73196,7 +73235,7 @@
                         "start_line": 1
                     }
                 },
-                "2494": {
+                "2498": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -73251,7 +73290,7 @@
                         "start_line": 1
                     }
                 },
-                "2495": {
+                "2499": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -73306,7 +73345,7 @@
                         "start_line": 1
                     }
                 },
-                "2496": {
+                "2500": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -73361,7 +73400,7 @@
                         "start_line": 1
                     }
                 },
-                "2497": {
+                "2501": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -73380,7 +73419,7 @@
                         "start_line": 201
                     }
                 },
-                "2499": {
+                "2503": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -73435,7 +73474,7 @@
                         "start_line": 1
                     }
                 },
-                "2500": {
+                "2504": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -73466,7 +73505,7 @@
                         "start_line": 2
                     }
                 },
-                "2502": {
+                "2506": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -73521,7 +73560,7 @@
                         "start_line": 1
                     }
                 },
-                "2503": {
+                "2507": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -73576,7 +73615,7 @@
                         "start_line": 1
                     }
                 },
-                "2504": {
+                "2508": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -73631,7 +73670,7 @@
                         "start_line": 2
                     }
                 },
-                "2505": {
+                "2509": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -73686,7 +73725,7 @@
                         "start_line": 2
                     }
                 },
-                "2506": {
+                "2510": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -73741,7 +73780,7 @@
                         "start_line": 2
                     }
                 },
-                "2507": {
+                "2511": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -74443,7 +74482,7 @@
                     }
                 }
             ],
-            "2403": [
+            "2407": [
                 {
                     "accessible_scopes": [
                         "__main__",
@@ -74454,14 +74493,14 @@
                     "code": "memory[ap] = segments.add()",
                     "flow_tracking_data": {
                         "ap_tracking": {
-                            "group": 176,
+                            "group": 178,
                             "offset": 0
                         },
                         "reference_ids": {}
                     }
                 }
             ],
-            "2464": [
+            "2468": [
                 {
                     "accessible_scopes": [
                         "__main__",
@@ -74472,14 +74511,14 @@
                     "code": "memory[ap] = segments.add()",
                     "flow_tracking_data": {
                         "ap_tracking": {
-                            "group": 182,
+                            "group": 184,
                             "offset": 0
                         },
                         "reference_ids": {}
                     }
                 }
             ],
-            "2481": [
+            "2485": [
                 {
                     "accessible_scopes": [
                         "__main__",
@@ -74490,7 +74529,7 @@
                     "code": "memory[ap] = segments.add()",
                     "flow_tracking_data": {
                         "ap_tracking": {
-                            "group": 185,
+                            "group": 187,
                             "offset": 0
                         },
                         "reference_ids": {}
@@ -74688,7 +74727,7 @@
                 "decorators": [
                     "external"
                 ],
-                "pc": 2441,
+                "pc": 2445,
                 "type": "function"
             },
             "__main__.burn.Args": {
@@ -75113,7 +75152,7 @@
                 "decorators": [
                     "external"
                 ],
-                "pc": 2361,
+                "pc": 2363,
                 "type": "function"
             },
             "__main__.mint.Args": {
@@ -75548,7 +75587,7 @@
                 "decorators": [
                     "external"
                 ],
-                "pc": 2473,
+                "pc": 2477,
                 "type": "function"
             },
             "__main__.transferOwnership.Args": {
@@ -75727,7 +75766,7 @@
                 "decorators": [
                     "external"
                 ],
-                "pc": 2454,
+                "pc": 2458,
                 "type": "function"
             },
             "__wrappers__.burn.Args": {
@@ -76004,7 +76043,7 @@
                 "decorators": [
                     "external"
                 ],
-                "pc": 2413,
+                "pc": 2417,
                 "type": "function"
             },
             "__wrappers__.mint.Args": {
@@ -76033,7 +76072,7 @@
             },
             "__wrappers__.mint_encode_return": {
                 "decorators": [],
-                "pc": 2403,
+                "pc": 2407,
                 "type": "function"
             },
             "__wrappers__.mint_encode_return.Args": {
@@ -76523,7 +76562,7 @@
                 "decorators": [
                     "external"
                 ],
-                "pc": 2490,
+                "pc": 2494,
                 "type": "function"
             },
             "__wrappers__.transferOwnership.Args": {
@@ -76552,7 +76591,7 @@
             },
             "__wrappers__.transferOwnership_encode_return": {
                 "decorators": [],
-                "pc": 2481,
+                "pc": 2485,
                 "type": "function"
             },
             "__wrappers__.transferOwnership_encode_return.Args": {

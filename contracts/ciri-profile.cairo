@@ -277,18 +277,19 @@ func create_collectible{
         assert ownerOf = caller;
     }
     let _collectible_index: felt = collectibles_by_id_index.read(profile_id);
+    let _collectible_index_new : felt = _collectible_index + 1;
     // write collectibles
     // profile_id: Uint256,
     // price_to_mint: Uint256,
     // gated: felt,
     // uri_len: felt,
     // uri: felt*,
-    collectible_token_uri_len.write(profile_id, _collectible_index, uri_len);
-    collectibles_by_id.write(profile_id, _collectible_index, Collectible(profile_id=profile_id,  price_to_mint=price_to_mint, gated=gated, minted=0, token_id=Uint256(0,0))); // , uri_len=uri_len, uri=uri
-    _setCollectibleURI(profile_id, _collectible_index, uri_len, uri);
+    collectible_token_uri_len.write(profile_id, _collectible_index_new, uri_len);
+    collectibles_by_id.write(profile_id, _collectible_index_new, Collectible(profile_id=profile_id,  price_to_mint=price_to_mint, gated=gated, minted=0, token_id=Uint256(0,0))); // , uri_len=uri_len, uri=uri
+    _setCollectibleURI(profile_id, _collectible_index_new, uri_len, uri);
     
 
-    let _collectible_index_new : felt = _collectible_index + 1;
+    
     collectibles_by_id_index.write(profile_id, _collectible_index_new);
     return (profile_id=profile_id);
 }
@@ -417,6 +418,11 @@ func donate{
     let goerli_address: felt = goerli_token_address.read();
     let contract_address: felt = get_contract_address();
 
+    let ownerOf: felt = ERC721.owner_of(_creator_id);
+    with_attr error_message("Owner can't donate Himself") {
+        assert_not_equal(ownerOf, caller);
+    }
+
     with_attr error_message("Not accepting 0 eth or below") {
         let _amount_felt : felt = uint256_to_address_felt(_amount);
         assert_nn(_amount_felt);
@@ -434,6 +440,8 @@ func donate{
    
     let (to_mint, _) = uint256_unsigned_div_rem(_amount, Uint256(10,0));
     let (to_donate, _) = uint256_mul(to_mint, Uint256(9,0));
+    // 1 ETH cut equal 1000 CIRI TOKEN
+    let (to_mint_token, _) = uint256_mul(to_mint, Uint256(1000,0));
 
     // transfer amount from caller to this address (all amount transfered)
     ICIRIERC20.transferFrom(goerli_address, caller, contract_address, _amount);
@@ -444,7 +452,7 @@ func donate{
     let (funds_updated, carry) = uint256_add(creator.funds, to_donate);
     creators_by_id.write(_creator_id, Creator(profile_id=_creator_id, creator_nickname=creator.creator_nickname, funds=funds_updated, milestone=creator.milestone)); 
     // token to mint value + 10% amount
-    let (mint_updated, carry) = uint256_add(value_to_mint, to_mint);
+    let (mint_updated, carry) = uint256_add(value_to_mint, to_mint_token);
     token_to_minted.write(caller, mint_updated);   
     let (current_count) = donators_count.read(_creator_id);
     donators_count.write(_creator_id, current_count + 1);
@@ -475,14 +483,42 @@ func claim{
 
     // 1 ETH = 100 CIRI
     // amount update accordingly
-    let (amount_ciri_mint, carry) = uint256_add(value_to_mint, Uint256(100,0));  
+    // let (amount_ciri_mint, carry) = uint256_mul(value_to_mint, Uint256(100,0));  
 
     // mint according to value
-    ICIRIERC20.mint(ciri_address, caller, amount_ciri_mint);
+    ICIRIERC20.mint(ciri_address, caller, value_to_mint);
     // reset token to minted
     token_to_minted.write(caller, Uint256(0,0));   
 
-    return (amount=amount_ciri_mint);
+    return (amount=value_to_mint);
+}
+
+// withdraw money as creator
+@external
+func withdraw{
+    syscall_ptr: felt*,
+    pedersen_ptr: HashBuiltin*,
+    range_check_ptr,
+    bitwise_ptr : BitwiseBuiltin*
+}() -> (amount : Uint256) {
+    alloc_locals;
+    let caller: felt = get_caller_address();
+    let goerli_address: felt = goerli_token_address.read();
+    let contract_address: felt = get_contract_address();
+    let (profile_id: Uint256) = ERC721Ciri.tokenOfOwnerByIndex(caller, Uint256(0,0));
+    // get creator funds
+    let creator : Creator = creators_by_id.read(profile_id);
+
+    with_attr error_message("You don't have any donation to withdraw") {
+        let _amount_felt : felt = uint256_to_address_felt(creator.funds);
+        assert_nn(_amount_felt);
+        assert_not_zero(_amount_felt);
+    }
+    // transfer
+    ICIRIERC20.transfer(goerli_address, caller, creator.funds);
+    // reset token funds
+    creators_by_id.write(profile_id, Creator(profile_id=profile_id, creator_nickname=creator.creator_nickname, funds=Uint256(0,0), milestone=creator.milestone)); 
+    return (amount=creator.funds);
 }
 
 // set milestone
@@ -795,35 +831,45 @@ func get_collectible_at{
     return (collectible=_collectible);
 }
 
-@view func get_collectibles{
-    syscall_ptr : felt*,
-    pedersen_ptr : HashBuiltin*,
-    range_check_ptr
-    }(owner : felt) -> (collectible_len : felt, collectible : Collectible*) {
-    alloc_locals;
-    // get collectible uri len
-    let (profile_id: Uint256) = ERC721Ciri.tokenOfOwnerByIndex(owner, Uint256(0,0));
-    let (local _collectibles: Collectible*) = alloc();
-    let (collectible_len) = collectibles_by_id_index.read(profile_id);
-    _getCollectibles(token_id=profile_id, collectible_len=collectible_len, collectible=_collectibles);
-    return (collectible_len,_collectibles);
+@view 
+func get_collectibles_count{
+        syscall_ptr : felt*,
+        pedersen_ptr : HashBuiltin*,
+        range_check_ptr
+    }(profile_id: Uint256) -> (count: felt) {
+    let (_collectible_len) = collectibles_by_id_index.read(profile_id);
+    return (count=_collectible_len);
 }
 
-func _getCollectibles{
-    syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr
-}( token_id : Uint256, collectible_len : felt, collectible : Collectible*){
-    alloc_locals;
-    if (collectible_len == 0) {
-        return ();
-    }
-    // error because index 0 return nothing, but should return data
-    let (base) =  collectibles_by_id.read(token_id, index=collectible_len - 1);
-    assert [collectible] = base;
-   _getCollectibles( token_id=token_id, 
-       collectible_len=collectible_len - 1, collectible=collectible + 1
-    );
-    return ();
-}
+// @view func get_collectibles{
+//     syscall_ptr : felt*,
+//     pedersen_ptr : HashBuiltin*,
+//     range_check_ptr
+//     }(owner : felt) -> (collectible_len : felt, collectible : Collectible*) {
+//     alloc_locals;
+//     // get collectible uri len
+//     let (profile_id: Uint256) = ERC721Ciri.tokenOfOwnerByIndex(owner, Uint256(0,0));
+//     let (local _collectibles: Collectible*) = alloc();
+//     let (_collectible_len) = collectibles_by_id_index.read(profile_id);
+//     _getCollectibles(token_id=profile_id, collectible_len=_collectible_len, collectible=_collectibles);
+//     return (_collectible_len,_collectibles);
+// }
+
+// func _getCollectibles{
+//     syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr
+// }( token_id : Uint256, collectible_len : felt, collectible : Collectible*){
+//     alloc_locals;
+//     if (collectible_len == 0) {
+//         return ();
+//     }
+//     // error because index 0 return nothing, but should return data
+//     let (base : Collectible) =  collectibles_by_id.read(token_id, index=collectible_len);
+//     assert [collectible] = base;
+//    _getCollectibles( token_id=token_id, 
+//        collectible_len=collectible_len - 1, collectible=collectible + 1
+//     );
+//     return ();
+// }
 
 @view
 func tokenOfOwnerByIndex{pedersen_ptr: HashBuiltin*, syscall_ptr: felt*, range_check_ptr}(
@@ -882,6 +928,16 @@ func get_donators_count{
         range_check_ptr
     }(owner: felt) -> (donators: felt) {
     let (tokenId: Uint256) = ERC721Ciri.tokenOfOwnerByIndex(owner, Uint256(0,0));
+    let (current_count) = donators_count.read(tokenId);
+    return (donators=current_count);
+}
+
+@view    
+func get_donators_count_by_id{
+        syscall_ptr : felt*,
+        pedersen_ptr : HashBuiltin*,
+        range_check_ptr
+    }(tokenId: Uint256) -> (donators: felt) {
     let (current_count) = donators_count.read(tokenId);
     return (donators=current_count);
 }

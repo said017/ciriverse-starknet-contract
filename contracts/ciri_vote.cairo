@@ -12,7 +12,7 @@ from starkware.cairo.common.uint256 import (
     Uint256,
     assert_uint256_le,
     uint256_le,
-    // uint256_unsigned_div_rem,
+    uint256_unsigned_div_rem,
     // uint256_sub,
     // uint256_mul,
     // uint256_add,
@@ -141,6 +141,10 @@ func vote_proposal{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_p
     let proposal : Proposal = proposals.read(profile_id, index);
     let (block_timestamp) = get_block_timestamp();
     let _ciri_address: felt = ciri_address_storage.read();
+    let ownerOf: felt = CIRI_IERC721.ownerOf(_ciri_address, profile_id);
+    with_attr error_message("Owner can't participate in vote") {
+        assert_not_equal(ownerOf, caller);
+    }
     // first check if vote still ongoing
     with_attr error_message("Proposal not active anymore") {
         assert_le(block_timestamp, proposal.deadline);
@@ -163,7 +167,8 @@ func vote_proposal{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_p
         assert_uint256_le(amount, _balance);
     }
     // convert amount to vote count
-    let _vote : felt = uint256_to_address_felt(amount);
+    let (to_vote, _) = uint256_unsigned_div_rem(amount, Uint256(1000000000000000000,0)); // 10 ^ 18
+    let _vote : felt = uint256_to_address_felt(to_vote);
 
     // update the vote
 
@@ -193,6 +198,9 @@ func execute_proposal{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_chec
     let (block_timestamp) = get_block_timestamp();
     let _ciri_address: felt = ciri_address_storage.read();
     // first scheck if proposal inactive
+    with_attr error_message("Proposal still active") {
+        assert_le(proposal.deadline , block_timestamp);
+    }
 
     // then execute it
     let opt1 : Uint256 = felt_to_uint256(proposal.votesOpt1);
