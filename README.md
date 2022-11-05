@@ -17,6 +17,10 @@ Try to run using Nile:
 nile compile
 nile deploy <contract_name> <args>
 ```
+Related Repos :
+- [Front-end](https://github.com/said017/cairo-fe-ciri)
+- [Notification Server](https://github.com/said017/ciriverse-stark-notification)
+
 Testnet Contracts :
 
 - [Creator Profile](https://testnet.starkscan.co/contract/0x03ea63dc43f089f652bec64f2a13427bf95b84fd214b85c2e2cda1ff91259117)
