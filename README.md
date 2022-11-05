@@ -11,12 +11,11 @@ Consist of 4 Contracts :
 3. `ciri_vote.cairo` for Polling/Interaction based on Milestone setted by creator on profile contract above, vote using ERC20 Ciri Token.
 4. `Ciri_ERC20.cairo` for ERC20 Ciri Token, generated/minted by donation to creator (10% Eth donation x 1000). Used for interacting with polled created by Creator
 
-Try running some of the following tasks:
+Try to run using Nile:
 
 ```shell
-npx hardhat help
-npx hardhat test
-npx hardhat deploy --network baobab
+nile compile
+nile deploy <contract_name> <args>
 ```
 Testnet Contracts :
 
