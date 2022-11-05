@@ -63,7 +63,7 @@ struct Collectible {
 // ///////////////////
 
 @event
-func user_created(account: felt, name: felt, pic: felt) {
+func user_created(account: Uint256, name: felt) {
 }
 
 @event
@@ -248,6 +248,7 @@ func create_profile{
     // write also creators array
     creators_by_id.write(profile_id, Creator(profile_id=profile_id, creator_nickname=nickname, funds=zero_value, milestone=zero_value));
 
+    user_created.emit(account=profile_id, name=nickname);
     return (profile_id=profile_id);
 }
 
