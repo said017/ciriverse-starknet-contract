@@ -18,8 +18,22 @@ We provide many potential integration and future features (NFTs, DAOs) to enable
 We make payment, NFT engagement and interaction between creators/artists more transparent and open by putting everything on-chain.
 - - -
 # 🌠 Our Solutions 🌠
-- - -
 Ciriverse, a place where you can grow and maintain your audience as Content Creators, Artists and Streamers. Providing platform to interacting better with your fans such as Engagement NFTs, Content Goals and NFTs Community gating.
+
+Consist of 4 Main Contracts :
+
+1. `ciri_profile.cairo` for NFTs based Creator Graph, main contracts to hold users and NFTs features gating.
+2. `Ciri_ERC721.cairo` for ERC721 Collectibles to mint from creators, can be gated by milestone from Creator Profile.
+3. `ciri_vote.cairo` for Polling/Interaction based on Milestone setted by creator on profile contract above, vote using ERC20 Ciri Token.
+4. `Ciri_ERC20.cairo` for ERC20 Ciri Token, generated/minted by donation to creator (10% Eth donation x 1000). Used for interacting with polls created by Creator
+
+Try to run using Nile:
+
+```shell
+nile compile
+nile deploy <contract_name> <args>
+```
+
 - - -
 # Ciriverse Walkthrough
 The app is live at [here](https://cairo-fe-ciri.vercel.app) and here is the [demo video](https://www.youtube.com/watch?v=5MtAVihVe3k). Walktrough available for 2 perspectives:
@@ -38,7 +52,7 @@ Ciriverse Creator Summary:
 6. Withdraw donated ETH
 
 ## Fan's 
-The most anticipated path for fans to interact with Ciriverse is from Streamers overlay links. Fans see content creator links and interact with it, go to creator's Ciriverse page, in there fans can donate ETH, Mint collectibles NFT and interact with available pollings using CIRI coin (if elligible and passed defined milestone value). Fans also can Mint CIRI Token that they elligible to Mint (Based on Calculation 10% donated ETH x 1000).  All interactions will be shown in streamers live streams.
+The most anticipated path for fans to interact with Ciriverse is from Streamers overlay links. Fans see content creator links and interact with it, go to creator's Ciriverse page, in there fans can donate ETH, Mint collectibles NFT and interact with available pollings using CIRI Token (if elligible and passed defined milestone value). Fans also can Mint CIRI Token that they elligible to Mint (Based on Calculation 10% donated ETH x 1000).  All interactions will be shown in streamers live streams.
 
 Ciriverse Fans Summary:
 1. Explore all ciriverse creators
@@ -49,20 +63,6 @@ Ciriverse Fans Summary:
 6. Interact with Polling
 
 - - -
-
-Consist of 4 Main Contracts :
-
-1. `ciri_profile.cairo` for NFTs based Creator Graph, main contracts to hold users and NFTs features gating.
-2. `Ciri_ERC721.cairo` for ERC721 Collectibles to mint from creators, can be gated by milestone from Creator Profile.
-3. `ciri_vote.cairo` for Polling/Interaction based on Milestone setted by creator on profile contract above, vote using ERC20 Ciri Token.
-4. `Ciri_ERC20.cairo` for ERC20 Ciri Token, generated/minted by donation to creator (10% Eth donation x 1000). Used for interacting with polls created by Creator
-
-Try to run using Nile:
-
-```shell
-nile compile
-nile deploy <contract_name> <args>
-```
 
 Related Repos :
 - [Front-end](https://github.com/said017/cairo-fe-ciri)
