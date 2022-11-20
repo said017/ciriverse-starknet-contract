@@ -19,7 +19,7 @@ We make payment, NFT engagement and interaction between creators/artists more tr
 - - -
 # 🌠 Our Solutions 🌠
 Ciriverse, a place where you can grow and maintain your audience as Content Creators, Artists and Streamers. Providing platform to interacting better with your fans such as Engagement NFTs, Content Goals and NFTs Community gating.
-
+- - -
 Consist of 4 Main Contracts :
 
 1. `ciri_profile.cairo` for NFTs based Creator Graph, main contracts to hold users and NFTs features gating.
