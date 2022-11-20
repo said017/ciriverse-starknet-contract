@@ -21,6 +21,7 @@ from starkware.starknet.common.syscalls import get_contract_address, get_caller_
 from interfaces.CIRI_IERC721 import CIRI_IERC721
 from interfaces.Iciri_profile import ICIRIPROFILE
 from interfaces.CIRI_IERC20 import ICIRIERC20
+from openzeppelin.security.reentrancyguard.library import ReentrancyGuard
 
 // ///////////////////
 // STRUCTS
@@ -137,6 +138,7 @@ func vote_proposal{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_p
     profile_id: Uint256, index: felt, vote: felt, amount: Uint256
 ) {
     alloc_locals;
+    ReentrancyGuard._start();
     let caller: felt = get_caller_address();
     let proposal : Proposal = proposals.read(profile_id, index);
     let (block_timestamp) = get_block_timestamp();
@@ -184,6 +186,7 @@ func vote_proposal{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_p
 
     // burn the ciri
     ICIRIERC20.burn_tokens(_token_address, caller, amount); 
+    ReentrancyGuard._end();
     return ();
 }
 
@@ -193,6 +196,7 @@ func execute_proposal{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_chec
     profile_id: Uint256, index: felt
 ) {
     alloc_locals;
+    ReentrancyGuard._start();
     let caller: felt = get_caller_address();
     let proposal : Proposal = proposals.read(profile_id, index);
     let (block_timestamp) = get_block_timestamp();
@@ -211,6 +215,7 @@ func execute_proposal{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_chec
     } else {
         proposals.write(profile_id, index, Proposal(deadline=proposal.deadline, option1=proposal.option1, option2=proposal.option2, votesOpt1=proposal.votesOpt1, votesOpt2=proposal.votesOpt2, executed=1, result=proposal.option2));         
     }
+    ReentrancyGuard._end();
     return ();
 }
 

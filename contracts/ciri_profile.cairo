@@ -17,6 +17,7 @@ from starkware.cairo.common.cairo_keccak.keccak import keccak_uint256s, keccak_f
 from starkware.cairo.common.alloc import alloc
 from openzeppelin.access.ownable.library import Ownable
 from openzeppelin.introspection.erc165.library import ERC165
+from openzeppelin.security.reentrancyguard.library import ReentrancyGuard
 
 from base.ERC721Ciri import ERC721Ciri
 from interfaces.CIRI_IERC20 import ICIRIERC20
@@ -207,6 +208,7 @@ func create_profile{
     bitwise_ptr : BitwiseBuiltin*
 }(nickname: felt, pic_len: felt, pic: felt*) -> (profile_id : Uint256) {
     alloc_locals;
+    ReentrancyGuard._start();
     let caller: felt = get_caller_address();
     // // struct_array[0] = DataTypes.ProfileStruct(pub_count=publications_count, follow_module=vars.follow_module, follow_nft=0, handle=vars.handle, image_uri=vars.image_uri, follow_nft_uri=vars.follow_nft_uri);
     // let _creator : Creator = creators_profile.read(caller);
@@ -249,6 +251,7 @@ func create_profile{
     creators_by_id.write(profile_id, Creator(profile_id=profile_id, creator_nickname=nickname, funds=zero_value, milestone=zero_value));
 
     user_created.emit(account=profile_id, name=nickname);
+    ReentrancyGuard._end();
     return (profile_id=profile_id);
 }
 
@@ -304,6 +307,7 @@ func mint_collectible{
     bitwise_ptr : BitwiseBuiltin*
 }(profile_id: Uint256, index: felt, price: Uint256) -> (profile_id : Uint256) {
     alloc_locals;
+    ReentrancyGuard._start();
     let caller: felt = get_caller_address();
     let ownerOf: felt = ERC721.owner_of(profile_id);
     let _collectible_address: felt = collectible_address.read();
@@ -361,7 +365,7 @@ func mint_collectible{
 
     // update Collectible to minted
     collectibles_by_id.write(profile_id, index, Collectible(profile_id=profile_id,  price_to_mint=_collectible.price_to_mint, gated=_collectible.gated, minted=1, token_id=index_counter));    
-
+    ReentrancyGuard._end();
     return (profile_id=profile_id);
 }
 
@@ -469,6 +473,7 @@ func claim{
     bitwise_ptr : BitwiseBuiltin*
 }() -> (amount : Uint256) {
     alloc_locals;
+    ReentrancyGuard._start();
     let caller: felt = get_caller_address();
     let ciri_address: felt = ciri_token_address.read();
 
@@ -491,7 +496,7 @@ func claim{
     ICIRIERC20.mint(ciri_address, caller, value_to_mint);
     // reset token to minted
     // token_to_minted.write(caller, Uint256(0,0));   
-
+    ReentrancyGuard._end();
     return (amount=value_to_mint);
 }
 
@@ -504,6 +509,7 @@ func withdraw{
     bitwise_ptr : BitwiseBuiltin*
 }() -> (amount : Uint256) {
     alloc_locals;
+    ReentrancyGuard._start();
     let caller: felt = get_caller_address();
     let goerli_address: felt = goerli_token_address.read();
     let contract_address: felt = get_contract_address();
@@ -520,6 +526,7 @@ func withdraw{
     ICIRIERC20.transfer(goerli_address, caller, creator.funds);
     // reset token funds
     creators_by_id.write(profile_id, Creator(profile_id=profile_id, creator_nickname=creator.creator_nickname, funds=Uint256(0,0), milestone=creator.milestone)); 
+    ReentrancyGuard._end();
     return (amount=creator.funds);
 }
 
