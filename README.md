@@ -36,7 +36,7 @@ nile deploy <contract_name> <args>
 
 - - -
 # Ciriverse Walkthrough
-The app is live at [here](https://cairo-fe-ciri.vercel.app) and here is the [demo video](https://www.youtube.com/watch?v=5MtAVihVe3k). Walktrough available for 2 perspectives:
+The app is live at [here](https://www.ciriverse.xyz) and here is the [demo video](https://www.youtube.com/watch?v=5MtAVihVe3k). Walktrough available for 2 perspectives:
 - Creator's
 - Fan's
 
