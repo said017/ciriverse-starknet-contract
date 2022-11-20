@@ -24,9 +24,6 @@ func felt_to_uint256{range_check_ptr}(x) -> Uint256 {
     return (Uint256(low=split.low, high=split.high));
 }
 
-func uint256_to_address_felt(x : Uint256) -> felt {
-    return (x.low + x.high * 2 ** 128);
-}
 
 // 
 // data storage

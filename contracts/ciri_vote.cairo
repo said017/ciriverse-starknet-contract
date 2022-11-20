@@ -18,9 +18,9 @@ from starkware.cairo.common.uint256 import (
     // uint256_add,
 )
 from starkware.starknet.common.syscalls import get_contract_address, get_caller_address
-from CIRI_IERC721 import CIRI_IERC721
-from Iciri_profile import ICIRIPROFILE
-from CIRI_IERC20 import ICIRIERC20
+from interfaces.CIRI_IERC721 import CIRI_IERC721
+from interfaces.Iciri_profile import ICIRIPROFILE
+from interfaces.CIRI_IERC20 import ICIRIERC20
 
 // ///////////////////
 // STRUCTS
