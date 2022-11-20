@@ -1,15 +1,29 @@
-# Ciriverse Cairo Smart Contracts
+# 🌌 Ciriverse Cairo Smart Contracts 🌌   
+
+_NFTs Based Engagement Platform!_
 
 **Ciriverse Protocol Diagram**
 
 ![ Ciriverse Protocol Diagram](https://i.ibb.co/TWycQZz/ciri-diagram-protocol.png)
+
+- - -
+# What Problems are Ciriverse Try to Solve?
+## limited Currency options
+Usually it's complicated and only accepting fiat currency to support creators/fans. We provide crypto payment as an options for creators/artists.
+
+## NO Digital product & interaction from EXISTING solutions
+We provide many potential integration and future features (NFTs, DAOs) to enable creators/artist building their communities.
+
+## not open and centralized existing solutions.
+We make payment, NFT engagement and interaction between creators/artists more transparent and open by putting everything on-chain.
+- - -
 
 Consist of 4 Contracts :
 
 1. `ciri_profile.cairo` for NFTs based Creator Graph, main contracts to hold users and NFTs features gating.
 2. `Ciri_ERC721.cairo` for ERC721 Collectibles to mint from creators, can be gated by milestone from Creator Profile.
 3. `ciri_vote.cairo` for Polling/Interaction based on Milestone setted by creator on profile contract above, vote using ERC20 Ciri Token.
-4. `Ciri_ERC20.cairo` for ERC20 Ciri Token, generated/minted by donation to creator (10% Eth donation x 1000). Used for interacting with polled created by Creator
+4. `Ciri_ERC20.cairo` for ERC20 Ciri Token, generated/minted by donation to creator (10% Eth donation x 1000). Used for interacting with polls created by Creator
 
 Try to run using Nile:
 
