@@ -181,8 +181,8 @@ func constructor{
     syscall_ptr: felt*,
     pedersen_ptr: HashBuiltin*,
     range_check_ptr
-}(name : felt, symbol : felt, owner : felt, goerli_eth: felt, token_uri_len: felt, token_uri: felt*) {
-    ERC721Ciri.initialize(name, symbol, owner, token_uri_len, token_uri);
+}(name : felt, symbol : felt, owner : felt, goerli_eth: felt) {
+    ERC721Ciri.initialize(name, symbol, owner);
     let profile_cnt : Uint256 = felt_to_uint256(0);
     profile_counter.write(profile_cnt);
     goerli_token_address.write(goerli_eth);
@@ -206,7 +206,7 @@ func create_profile{
     pedersen_ptr: HashBuiltin*,
     range_check_ptr,
     bitwise_ptr : BitwiseBuiltin*
-}(nickname: felt, pic_len: felt, pic: felt*) -> (profile_id : Uint256) {
+}(nickname: felt, pic_len: felt, pic: felt*, token_uri_len: felt, token_uri: felt*) -> (profile_id : Uint256) {
     alloc_locals;
     ReentrancyGuard._start();
     let caller: felt = get_caller_address();
@@ -232,6 +232,7 @@ func create_profile{
     // add new record to profile_id_by_nh_storage storage
 
     ERC721Ciri.mint(caller, profile_id);
+    _setTokenURI(profile_id, token_uri_len, token_uri);
     
     profile_id_by_nh_storage.write(nickname_hash_felt, profile_id);    
 
@@ -246,6 +247,7 @@ func create_profile{
 
     _setProfileURI(profile_id, pic_len, pic);
     profile_img_uri_len.write(profile_id, pic_len);
+    
 
     // write also creators array
     creators_by_id.write(profile_id, Creator(profile_id=profile_id, creator_nickname=nickname, funds=zero_value, milestone=zero_value));
@@ -613,12 +615,12 @@ func transferOwnership{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_che
     return (new_owner=new_owner);
 }
 
-@external
-func setTokenURI{pedersen_ptr: HashBuiltin*, syscall_ptr: felt*, range_check_ptr}(
-    base_token_uri_len: felt, base_token_uri: felt*
+
+func _setTokenURI{pedersen_ptr: HashBuiltin*, syscall_ptr: felt*, range_check_ptr}(
+    token_id: Uint256, base_token_uri_len: felt, base_token_uri: felt*
 ) {
-    Ownable.assert_only_owner();
-    ERC721Ciri.setTokenURI(base_token_uri_len, base_token_uri);
+    // Ownable.assert_only_owner();
+    ERC721Ciri.setTokenURI(token_id, base_token_uri_len, base_token_uri);
     return ();
 }
 

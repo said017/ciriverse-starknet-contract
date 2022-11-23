@@ -171,14 +171,6 @@
             {
                 "name": "goerli_eth",
                 "type": "felt"
-            },
-            {
-                "name": "token_uri_len",
-                "type": "felt"
-            },
-            {
-                "name": "token_uri",
-                "type": "felt*"
             }
         ],
         "name": "constructor",
@@ -197,6 +189,14 @@
             },
             {
                 "name": "pic",
+                "type": "felt*"
+            },
+            {
+                "name": "token_uri_len",
+                "type": "felt"
+            },
+            {
+                "name": "token_uri",
                 "type": "felt*"
             }
         ],
@@ -432,21 +432,6 @@
                 "type": "felt"
             }
         ],
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "base_token_uri_len",
-                "type": "felt"
-            },
-            {
-                "name": "base_token_uri",
-                "type": "felt*"
-            }
-        ],
-        "name": "setTokenURI",
-        "outputs": [],
         "type": "function"
     },
     {

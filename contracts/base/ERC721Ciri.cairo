@@ -10,9 +10,9 @@ from openzeppelin.token.erc721.enumerable.library import ERC721Enumerable
 from openzeppelin.introspection.erc165.library import ERC165
 from openzeppelin.access.ownable.library import Ownable
 
-from libraries.ERC721_Metadata import (
+from libraries.ERC721_Collectible import (
     ERC721_Metadata_tokenURI,
-    ERC721_Metadata_setBaseTokenURI,
+    ERC721_Metadata_setTokenURI,
 )
 
 namespace ERC721Ciri {
@@ -23,15 +23,15 @@ namespace ERC721Ciri {
         }(
         name : felt,
         symbol : felt,
-        owner : felt,
-        base_token_uri_len : felt,
-        base_token_uri : felt*,
+        owner : felt
+        // base_token_uri_len : felt,
+        // base_token_uri : felt*,
         //token_uri_suffix : felt,
     ) {
         ERC721.initializer(name, symbol);
         ERC721Enumerable.initializer();
         Ownable.initializer(owner);
-        ERC721_Metadata_setBaseTokenURI(base_token_uri_len, base_token_uri); //token_uri_suffix
+        // ERC721_Metadata_setBaseTokenURI(base_token_uri_len, base_token_uri); //token_uri_suffix
         return ();
     }
 
@@ -147,11 +147,19 @@ namespace ERC721Ciri {
         return ();
     }
 
-    func setTokenURI{pedersen_ptr : HashBuiltin*, syscall_ptr : felt*, range_check_ptr}(
-        base_token_uri_len : felt, base_token_uri : felt*
+    // func setTokenURI{pedersen_ptr : HashBuiltin*, syscall_ptr : felt*, range_check_ptr}(
+    //     base_token_uri_len : felt, base_token_uri : felt*
+    // ) {
+    //     Ownable.assert_only_owner();
+    //     ERC721_Metadata_setBaseTokenURI(base_token_uri_len, base_token_uri);
+    //     return ();
+    // }
+
+    func setTokenURI{pedersen_ptr: HashBuiltin*, syscall_ptr: felt*, range_check_ptr}(
+    token_id: Uint256, base_token_uri_len: felt, base_token_uri: felt*
     ) {
-        Ownable.assert_only_owner();
-        ERC721_Metadata_setBaseTokenURI(base_token_uri_len, base_token_uri);
+        // Ownable.assert_only_owner();
+        ERC721_Metadata_setTokenURI(token_id, base_token_uri_len, base_token_uri);
         return ();
     }
 

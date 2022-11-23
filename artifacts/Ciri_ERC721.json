@@ -337,11 +337,11 @@
                     "type": "felt"
                 },
                 {
-                    "name": "base_token_uri_len",
+                    "name": "token_uri_len",
                     "type": "felt"
                 },
                 {
-                    "name": "base_token_uri",
+                    "name": "token_uri",
                     "type": "felt*"
                 }
             ],
@@ -3538,6 +3538,8 @@
                 "autogen/starknet/arg_processor/01cba52f8515996bb9d7070bde81ff39281d096d7024a558efcba6e1fd2402cf.cairo": "assert [cast(fp + (-4), felt*)] = __calldata_actual_size;\n",
                 "autogen/starknet/arg_processor/0c6722d4075e0dd548a66d0d2f538f15e83644a2d2bee76207df7bf637917864.cairo": "let __calldata_arg__from = [__calldata_ptr];\nlet __calldata_ptr = __calldata_ptr + 1;\n",
                 "autogen/starknet/arg_processor/0e19f9a682a39db2364aac95fe9c14dd6ee6e0f4fe00aa83ca62c4d3c56a2bbe.cairo": "// Create a reference to ret_value.token_id as felt*.\nlet __return_value_tmp: felt* = cast(&ret_value.token_id, felt*);\nassert [__return_value_ptr + 0] = [__return_value_tmp + 0];\nassert [__return_value_ptr + 1] = [__return_value_tmp + 1];\nlet __return_value_ptr = __return_value_ptr + 2;\n",
+                "autogen/starknet/arg_processor/108e873a224415bd1581c1c03b45edd86863929fd289ca5c66f97cf208544583.cairo": "// Check that the length is non-negative.\nassert [range_check_ptr] = __calldata_arg_token_uri_len;\nlet range_check_ptr = range_check_ptr + 1;\n// Create the reference.\nlet __calldata_arg_token_uri = cast(__calldata_ptr, felt*);\n// Use 'tempvar' instead of 'let' to avoid repeating this computation for the\n// following arguments.\ntempvar __calldata_ptr = __calldata_ptr + __calldata_arg_token_uri_len * 1;\n",
+                "autogen/starknet/arg_processor/223902ce5446eccb1cb23bf7b5b86ec8f341ee7e2c4e93b0da98943c56d3e47c.cairo": "let __calldata_arg_token_uri_len = [__calldata_ptr];\nlet __calldata_ptr = __calldata_ptr + 1;\n",
                 "autogen/starknet/arg_processor/2670bb539ede27446c75876e41bcf9ef5cab09b9eec143f3986635a545b089ab.cairo": "assert [__calldata_ptr] = to;\nlet __calldata_ptr = __calldata_ptr + 1;\n",
                 "autogen/starknet/arg_processor/280c0a864fa1758c1c68a2dbf7db54c26c78c0212241fc0ab68100cf9886a85a.cairo": "assert [__calldata_ptr] = interfaceId;\nlet __calldata_ptr = __calldata_ptr + 1;\n",
                 "autogen/starknet/arg_processor/2d2a59588c2058016ad4194dc37ffe15f61d7d7faa733af03df5d625b7049362.cairo": "let __return_value_arg_selector = [__return_value_ptr];\nlet __return_value_ptr = __return_value_ptr + 1;\n",
@@ -3546,7 +3548,6 @@
                 "autogen/starknet/arg_processor/3df93897a3d5ba5292d0e14e5ec6fc5a7b4e70846d4b45d9e0d60ead1a53339e.cairo": "let __calldata_arg_approved = [__calldata_ptr];\nlet __calldata_ptr = __calldata_ptr + 1;\n",
                 "autogen/starknet/arg_processor/445d818b0524d35ae3e73b7abec41731d1445f0ce6866ec5a3a8a871521799a0.cairo": "assert [__calldata_ptr] = newOwner;\nlet __calldata_ptr = __calldata_ptr + 1;\n",
                 "autogen/starknet/arg_processor/450f0509800d3afb78e5f375ff7b17115e6b5d0fd7e2bff94c78fdb15f5f2d10.cairo": "let __calldata_arg_new_owner = [__calldata_ptr];\nlet __calldata_ptr = __calldata_ptr + 1;\n",
-                "autogen/starknet/arg_processor/45ed6ef262077fa3bfbfcb4499e5b8bac4739e2007b0899d7cd45163c2f5af15.cairo": "// Check that the length is non-negative.\nassert [range_check_ptr] = __calldata_arg_base_token_uri_len;\nlet range_check_ptr = range_check_ptr + 1;\n// Create the reference.\nlet __calldata_arg_base_token_uri = cast(__calldata_ptr, felt*);\n// Use 'tempvar' instead of 'let' to avoid repeating this computation for the\n// following arguments.\ntempvar __calldata_ptr = __calldata_ptr + __calldata_arg_base_token_uri_len * 1;\n",
                 "autogen/starknet/arg_processor/4f1f3aa0a6fec21a155d7e953cd34daa7ca48450bbb80f627eb4f8df9f25922a.cairo": "let __calldata_arg_data_len = [__calldata_ptr];\nlet __calldata_ptr = __calldata_ptr + 1;\n",
                 "autogen/starknet/arg_processor/5462c9ea522f66a6a8b3de2f37f244c7074893fe5c8d0b413046098a1ccfc2ce.cairo": "assert [__return_value_ptr] = ret_value.token_uri_len;\nlet __return_value_ptr = __return_value_ptr + 1;\n",
                 "autogen/starknet/arg_processor/5acfd8e875f992ccc9524eb75bc3cf4970bff0987c9ed04b83bdbe0bdb94c8b5.cairo": "assert [__calldata_ptr] = data_len;\nlet __calldata_ptr = __calldata_ptr + 1;\n",
@@ -3573,7 +3574,6 @@
                 "autogen/starknet/arg_processor/e0af26f9fbe513562e2133164d694cbff092c47bbb4efa182711421f0c0cc5d3.cairo": "// Check that the length is non-negative.\nassert [range_check_ptr] = __calldata_arg_data_len;\nlet range_check_ptr = range_check_ptr + 1;\n// Create the reference.\nlet __calldata_arg_data = cast(__calldata_ptr, felt*);\n// Use 'tempvar' instead of 'let' to avoid repeating this computation for the\n// following arguments.\ntempvar __calldata_ptr = __calldata_ptr + __calldata_arg_data_len * 1;\n",
                 "autogen/starknet/arg_processor/e1eb73cd870ec466294c3700e77817cf3c039ac1384882ddb76383eb87a5da90.cairo": "let __calldata_arg_name = [__calldata_ptr];\nlet __calldata_ptr = __calldata_ptr + 1;\n",
                 "autogen/starknet/arg_processor/e2129a0023ce5f9e4c3de1d6fb100b2688dccff4a2ed2082db4a311f35c53e21.cairo": "assert [__calldata_ptr] = previousOwner;\nlet __calldata_ptr = __calldata_ptr + 1;\n",
-                "autogen/starknet/arg_processor/e89735e898bfda825d51380fb4cb3d5255c12052fd064e593fdc9464c2ccfa18.cairo": "let __calldata_arg_base_token_uri_len = [__calldata_ptr];\nlet __calldata_ptr = __calldata_ptr + 1;\n",
                 "autogen/starknet/arg_processor/f013cc89754bf613d36aa163a5014b518987d20a85394ebbe3c47c5cdb0a38b1.cairo": "// Create a reference to ret_value.balance as felt*.\nlet __return_value_tmp: felt* = cast(&ret_value.balance, felt*);\nassert [__return_value_ptr + 0] = [__return_value_tmp + 0];\nassert [__return_value_ptr + 1] = [__return_value_tmp + 1];\nlet __return_value_ptr = __return_value_ptr + 2;\n",
                 "autogen/starknet/arg_processor/f6a4d9ae897caf37cefd18f7c8da7eee73157818279359aadee282f0fe59cdbc.cairo": "let __calldata_arg_owner = [__calldata_ptr];\nlet __calldata_ptr = __calldata_ptr + 1;\n",
                 "autogen/starknet/contract_interface/IERC165/supportsInterface/18abb29d0a089e1c243e4bd2b316687e6162b3321c14733ee37389da5d8b074f.cairo": "\nreturn (success=__return_value_arg_success,);\n",
@@ -3631,10 +3631,10 @@
                 "autogen/starknet/external/isApprovedForAll/9684a85e93c782014ca14293edea4eb2502039a5a7b6538ecd39c56faaf12529.cairo": "let pedersen_ptr = [cast([cast(fp + (-5), felt**)] + 1, starkware.cairo.common.cairo_builtins.HashBuiltin**)];\n",
                 "autogen/starknet/external/isApprovedForAll/b2c52ca2d2a8fc8791a983086d8716c5eacd0c3d62934914d2286f84b98ff4cb.cairo": "let syscall_ptr = [cast([cast(fp + (-5), felt**)] + 0, felt**)];\n",
                 "autogen/starknet/external/isApprovedForAll/da17921a4e81c09e730800bbf23bfdbe5e9e6bfaedc59d80fbf62087fa43c27d.cairo": "return (syscall_ptr,pedersen_ptr,range_check_ptr,retdata_size,retdata);\n",
-                "autogen/starknet/external/mint/0122b19de040eb865fcbba32400abf42c59f4ca71149a0261db555af1db93db6.cairo": "let ret_value = __wrapped_func{pedersen_ptr=pedersen_ptr, syscall_ptr=syscall_ptr, range_check_ptr=range_check_ptr}(to=__calldata_arg_to, base_token_uri_len=__calldata_arg_base_token_uri_len, base_token_uri=__calldata_arg_base_token_uri,);\nlet (range_check_ptr, retdata_size, retdata) = mint_encode_return(ret_value, range_check_ptr);\n",
                 "autogen/starknet/external/mint/741ea357d6336b0bed7bf0472425acd0311d543883b803388880e60a232040c7.cairo": "let range_check_ptr = [cast([cast(fp + (-5), felt**)] + 2, felt*)];\n",
                 "autogen/starknet/external/mint/9684a85e93c782014ca14293edea4eb2502039a5a7b6538ecd39c56faaf12529.cairo": "let pedersen_ptr = [cast([cast(fp + (-5), felt**)] + 1, starkware.cairo.common.cairo_builtins.HashBuiltin**)];\n",
                 "autogen/starknet/external/mint/b2c52ca2d2a8fc8791a983086d8716c5eacd0c3d62934914d2286f84b98ff4cb.cairo": "let syscall_ptr = [cast([cast(fp + (-5), felt**)] + 0, felt**)];\n",
+                "autogen/starknet/external/mint/d084fe2d924f2eb821cc908c2b9b8abedf9d534ba306d7d757790718957c8c45.cairo": "let ret_value = __wrapped_func{pedersen_ptr=pedersen_ptr, syscall_ptr=syscall_ptr, range_check_ptr=range_check_ptr}(to=__calldata_arg_to, token_uri_len=__calldata_arg_token_uri_len, token_uri=__calldata_arg_token_uri,);\nlet (range_check_ptr, retdata_size, retdata) = mint_encode_return(ret_value, range_check_ptr);\n",
                 "autogen/starknet/external/mint/da17921a4e81c09e730800bbf23bfdbe5e9e6bfaedc59d80fbf62087fa43c27d.cairo": "return (syscall_ptr,pedersen_ptr,range_check_ptr,retdata_size,retdata);\n",
                 "autogen/starknet/external/name/3034a84ffbc2cc9a83b0bdb0bf6aadae87a5c63f8544f4bc76a18d60221f0e94.cairo": "let ret_value = __wrapped_func{syscall_ptr=syscall_ptr, pedersen_ptr=pedersen_ptr, range_check_ptr=range_check_ptr}();\nlet (range_check_ptr, retdata_size, retdata) = name_encode_return(ret_value, range_check_ptr);\n",
                 "autogen/starknet/external/name/741ea357d6336b0bed7bf0472425acd0311d543883b803388880e60a232040c7.cairo": "let range_check_ptr = [cast([cast(fp + (-5), felt**)] + 2, felt*)];\n",
@@ -68312,14 +68312,14 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 48,
+                        "end_col": 43,
                         "end_line": 166,
                         "input_file": {
                             "filename": "contracts/Ciri_ERC721.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 61,
+                                "end_col": 56,
                                 "end_line": 169,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
@@ -68327,7 +68327,7 @@
                                 "start_col": 43,
                                 "start_line": 169
                             },
-                            "While expanding the reference 'base_token_uri_len' in:"
+                            "While expanding the reference 'token_uri_len' in:"
                         ],
                         "start_col": 24,
                         "start_line": 166
@@ -68341,24 +68341,24 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 71,
+                        "end_col": 61,
                         "end_line": 166,
                         "input_file": {
                             "filename": "contracts/Ciri_ERC721.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 77,
+                                "end_col": 67,
                                 "end_line": 169,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
                                 },
-                                "start_col": 63,
+                                "start_col": 58,
                                 "start_line": 169
                             },
-                            "While expanding the reference 'base_token_uri' in:"
+                            "While expanding the reference 'token_uri' in:"
                         ],
-                        "start_col": 50,
+                        "start_col": 45,
                         "start_line": 166
                     }
                 },
@@ -68370,7 +68370,7 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 78,
+                        "end_col": 68,
                         "end_line": 169,
                         "input_file": {
                             "filename": "contracts/Ciri_ERC721.cairo"
@@ -68394,7 +68394,7 @@
                         },
                         "parent_location": [
                             {
-                                "end_col": 78,
+                                "end_col": 68,
                                 "end_line": 169,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
@@ -68447,7 +68447,7 @@
                         },
                         "parent_location": [
                             {
-                                "end_col": 78,
+                                "end_col": 68,
                                 "end_line": 169,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
@@ -68500,7 +68500,7 @@
                         },
                         "parent_location": [
                             {
-                                "end_col": 78,
+                                "end_col": 68,
                                 "end_line": 169,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
@@ -69236,14 +69236,14 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 39,
+                        "end_col": 34,
                         "end_line": 175,
                         "input_file": {
                             "filename": "contracts/Ciri_ERC721.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 55,
+                                "end_col": 50,
                                 "end_line": 184,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
@@ -69251,7 +69251,7 @@
                                 "start_col": 37,
                                 "start_line": 184
                             },
-                            "While expanding the reference 'base_token_uri_len' in:"
+                            "While expanding the reference 'token_uri_len' in:"
                         ],
                         "start_col": 15,
                         "start_line": 175
@@ -69266,24 +69266,24 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 62,
+                        "end_col": 52,
                         "end_line": 175,
                         "input_file": {
                             "filename": "contracts/Ciri_ERC721.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 71,
+                                "end_col": 61,
                                 "end_line": 184,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
                                 },
-                                "start_col": 57,
+                                "start_col": 52,
                                 "start_line": 184
                             },
-                            "While expanding the reference 'base_token_uri' in:"
+                            "While expanding the reference 'token_uri' in:"
                         ],
-                        "start_col": 41,
+                        "start_col": 36,
                         "start_line": 175
                     }
                 },
@@ -69296,7 +69296,7 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 72,
+                        "end_col": 62,
                         "end_line": 184,
                         "input_file": {
                             "filename": "contracts/Ciri_ERC721.cairo"
@@ -69321,7 +69321,7 @@
                         },
                         "parent_location": [
                             {
-                                "end_col": 72,
+                                "end_col": 62,
                                 "end_line": 184,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
@@ -69375,7 +69375,7 @@
                         },
                         "parent_location": [
                             {
-                                "end_col": 72,
+                                "end_col": 62,
                                 "end_line": 184,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
@@ -69429,7 +69429,7 @@
                         },
                         "parent_location": [
                             {
-                                "end_col": 72,
+                                "end_col": 62,
                                 "end_line": 184,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
@@ -70205,19 +70205,19 @@
                                         "end_col": 24,
                                         "end_line": 2,
                                         "input_file": {
-                                            "filename": "autogen/starknet/arg_processor/45ed6ef262077fa3bfbfcb4499e5b8bac4739e2007b0899d7cd45163c2f5af15.cairo"
+                                            "filename": "autogen/starknet/arg_processor/108e873a224415bd1581c1c03b45edd86863929fd289ca5c66f97cf208544583.cairo"
                                         },
                                         "parent_location": [
                                             {
-                                                "end_col": 62,
+                                                "end_col": 52,
                                                 "end_line": 175,
                                                 "input_file": {
                                                     "filename": "contracts/Ciri_ERC721.cairo"
                                                 },
-                                                "start_col": 41,
+                                                "start_col": 36,
                                                 "start_line": 175
                                             },
-                                            "While handling calldata argument 'base_token_uri'"
+                                            "While handling calldata argument 'token_uri'"
                                         ],
                                         "start_col": 9,
                                         "start_line": 2
@@ -70243,48 +70243,48 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 57,
+                        "end_col": 52,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/arg_processor/e89735e898bfda825d51380fb4cb3d5255c12052fd064e593fdc9464c2ccfa18.cairo"
+                            "filename": "autogen/starknet/arg_processor/223902ce5446eccb1cb23bf7b5b86ec8f341ee7e2c4e93b0da98943c56d3e47c.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 39,
+                                "end_col": 34,
                                 "end_line": 175,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 61,
+                                        "end_col": 56,
                                         "end_line": 2,
                                         "input_file": {
-                                            "filename": "autogen/starknet/arg_processor/45ed6ef262077fa3bfbfcb4499e5b8bac4739e2007b0899d7cd45163c2f5af15.cairo"
+                                            "filename": "autogen/starknet/arg_processor/108e873a224415bd1581c1c03b45edd86863929fd289ca5c66f97cf208544583.cairo"
                                         },
                                         "parent_location": [
                                             {
-                                                "end_col": 62,
+                                                "end_col": 52,
                                                 "end_line": 175,
                                                 "input_file": {
                                                     "filename": "contracts/Ciri_ERC721.cairo"
                                                 },
-                                                "start_col": 41,
+                                                "start_col": 36,
                                                 "start_line": 175
                                             },
-                                            "While handling calldata argument 'base_token_uri'"
+                                            "While handling calldata argument 'token_uri'"
                                         ],
                                         "start_col": 28,
                                         "start_line": 2
                                     },
-                                    "While expanding the reference '__calldata_arg_base_token_uri_len' in:"
+                                    "While expanding the reference '__calldata_arg_token_uri_len' in:"
                                 ],
                                 "start_col": 15,
                                 "start_line": 175
                             },
-                            "While handling calldata argument 'base_token_uri_len'"
+                            "While handling calldata argument 'token_uri_len'"
                         ],
-                        "start_col": 41,
+                        "start_col": 36,
                         "start_line": 1
                     }
                 },
@@ -70298,22 +70298,22 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 62,
+                        "end_col": 57,
                         "end_line": 2,
                         "input_file": {
-                            "filename": "autogen/starknet/arg_processor/45ed6ef262077fa3bfbfcb4499e5b8bac4739e2007b0899d7cd45163c2f5af15.cairo"
+                            "filename": "autogen/starknet/arg_processor/108e873a224415bd1581c1c03b45edd86863929fd289ca5c66f97cf208544583.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 62,
+                                "end_col": 52,
                                 "end_line": 175,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
                                 },
-                                "start_col": 41,
+                                "start_col": 36,
                                 "start_line": 175
                             },
-                            "While handling calldata argument 'base_token_uri'"
+                            "While handling calldata argument 'token_uri'"
                         ],
                         "start_col": 1,
                         "start_line": 2
@@ -70332,11 +70332,11 @@
                         "end_col": 40,
                         "end_line": 2,
                         "input_file": {
-                            "filename": "autogen/starknet/arg_processor/e89735e898bfda825d51380fb4cb3d5255c12052fd064e593fdc9464c2ccfa18.cairo"
+                            "filename": "autogen/starknet/arg_processor/223902ce5446eccb1cb23bf7b5b86ec8f341ee7e2c4e93b0da98943c56d3e47c.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 39,
+                                "end_col": 34,
                                 "end_line": 175,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
@@ -70346,19 +70346,19 @@
                                         "end_col": 40,
                                         "end_line": 8,
                                         "input_file": {
-                                            "filename": "autogen/starknet/arg_processor/45ed6ef262077fa3bfbfcb4499e5b8bac4739e2007b0899d7cd45163c2f5af15.cairo"
+                                            "filename": "autogen/starknet/arg_processor/108e873a224415bd1581c1c03b45edd86863929fd289ca5c66f97cf208544583.cairo"
                                         },
                                         "parent_location": [
                                             {
-                                                "end_col": 62,
+                                                "end_col": 52,
                                                 "end_line": 175,
                                                 "input_file": {
                                                     "filename": "contracts/Ciri_ERC721.cairo"
                                                 },
-                                                "start_col": 41,
+                                                "start_col": 36,
                                                 "start_line": 175
                                             },
-                                            "While handling calldata argument 'base_token_uri'"
+                                            "While handling calldata argument 'token_uri'"
                                         ],
                                         "start_col": 26,
                                         "start_line": 8
@@ -70368,7 +70368,7 @@
                                 "start_col": 15,
                                 "start_line": 175
                             },
-                            "While handling calldata argument 'base_token_uri_len'"
+                            "While handling calldata argument 'token_uri_len'"
                         ],
                         "start_col": 22,
                         "start_line": 2
@@ -70384,48 +70384,48 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 57,
+                        "end_col": 52,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/arg_processor/e89735e898bfda825d51380fb4cb3d5255c12052fd064e593fdc9464c2ccfa18.cairo"
+                            "filename": "autogen/starknet/arg_processor/223902ce5446eccb1cb23bf7b5b86ec8f341ee7e2c4e93b0da98943c56d3e47c.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 39,
+                                "end_col": 34,
                                 "end_line": 175,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 76,
+                                        "end_col": 71,
                                         "end_line": 8,
                                         "input_file": {
-                                            "filename": "autogen/starknet/arg_processor/45ed6ef262077fa3bfbfcb4499e5b8bac4739e2007b0899d7cd45163c2f5af15.cairo"
+                                            "filename": "autogen/starknet/arg_processor/108e873a224415bd1581c1c03b45edd86863929fd289ca5c66f97cf208544583.cairo"
                                         },
                                         "parent_location": [
                                             {
-                                                "end_col": 62,
+                                                "end_col": 52,
                                                 "end_line": 175,
                                                 "input_file": {
                                                     "filename": "contracts/Ciri_ERC721.cairo"
                                                 },
-                                                "start_col": 41,
+                                                "start_col": 36,
                                                 "start_line": 175
                                             },
-                                            "While handling calldata argument 'base_token_uri'"
+                                            "While handling calldata argument 'token_uri'"
                                         ],
                                         "start_col": 43,
                                         "start_line": 8
                                     },
-                                    "While expanding the reference '__calldata_arg_base_token_uri_len' in:"
+                                    "While expanding the reference '__calldata_arg_token_uri_len' in:"
                                 ],
                                 "start_col": 15,
                                 "start_line": 175
                             },
-                            "While handling calldata argument 'base_token_uri_len'"
+                            "While handling calldata argument 'token_uri_len'"
                         ],
-                        "start_col": 41,
+                        "start_col": 36,
                         "start_line": 1
                     }
                 },
@@ -70439,22 +70439,22 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 80,
+                        "end_col": 75,
                         "end_line": 8,
                         "input_file": {
-                            "filename": "autogen/starknet/arg_processor/45ed6ef262077fa3bfbfcb4499e5b8bac4739e2007b0899d7cd45163c2f5af15.cairo"
+                            "filename": "autogen/starknet/arg_processor/108e873a224415bd1581c1c03b45edd86863929fd289ca5c66f97cf208544583.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 62,
+                                "end_col": 52,
                                 "end_line": 175,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
                                 },
-                                "start_col": 41,
+                                "start_col": 36,
                                 "start_line": 175
                             },
-                            "While handling calldata argument 'base_token_uri'"
+                            "While handling calldata argument 'token_uri'"
                         ],
                         "start_col": 26,
                         "start_line": 8
@@ -70518,11 +70518,11 @@
                                         "end_col": 38,
                                         "end_line": 3,
                                         "input_file": {
-                                            "filename": "autogen/starknet/arg_processor/45ed6ef262077fa3bfbfcb4499e5b8bac4739e2007b0899d7cd45163c2f5af15.cairo"
+                                            "filename": "autogen/starknet/arg_processor/108e873a224415bd1581c1c03b45edd86863929fd289ca5c66f97cf208544583.cairo"
                                         },
                                         "parent_location": [
                                             {
-                                                "end_col": 62,
+                                                "end_col": 52,
                                                 "end_line": 175,
                                                 "input_file": {
                                                     "filename": "contracts/Ciri_ERC721.cairo"
@@ -70532,7 +70532,7 @@
                                                         "end_col": 115,
                                                         "end_line": 1,
                                                         "input_file": {
-                                                            "filename": "autogen/starknet/external/mint/0122b19de040eb865fcbba32400abf42c59f4ca71149a0261db555af1db93db6.cairo"
+                                                            "filename": "autogen/starknet/external/mint/d084fe2d924f2eb821cc908c2b9b8abedf9d534ba306d7d757790718957c8c45.cairo"
                                                         },
                                                         "parent_location": [
                                                             {
@@ -70551,10 +70551,10 @@
                                                     },
                                                     "While expanding the reference 'range_check_ptr' in:"
                                                 ],
-                                                "start_col": 41,
+                                                "start_col": 36,
                                                 "start_line": 175
                                             },
-                                            "While handling calldata argument 'base_token_uri'"
+                                            "While handling calldata argument 'token_uri'"
                                         ],
                                         "start_col": 23,
                                         "start_line": 3
@@ -70597,7 +70597,7 @@
                                         "end_col": 57,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/mint/0122b19de040eb865fcbba32400abf42c59f4ca71149a0261db555af1db93db6.cairo"
+                                            "filename": "autogen/starknet/external/mint/d084fe2d924f2eb821cc908c2b9b8abedf9d534ba306d7d757790718957c8c45.cairo"
                                         },
                                         "parent_location": [
                                             {
@@ -70652,7 +70652,7 @@
                                         "end_col": 82,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/mint/0122b19de040eb865fcbba32400abf42c59f4ca71149a0261db555af1db93db6.cairo"
+                                            "filename": "autogen/starknet/external/mint/d084fe2d924f2eb821cc908c2b9b8abedf9d534ba306d7d757790718957c8c45.cairo"
                                         },
                                         "parent_location": [
                                             {
@@ -70693,11 +70693,11 @@
                         "end_col": 42,
                         "end_line": 3,
                         "input_file": {
-                            "filename": "autogen/starknet/arg_processor/45ed6ef262077fa3bfbfcb4499e5b8bac4739e2007b0899d7cd45163c2f5af15.cairo"
+                            "filename": "autogen/starknet/arg_processor/108e873a224415bd1581c1c03b45edd86863929fd289ca5c66f97cf208544583.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 62,
+                                "end_col": 52,
                                 "end_line": 175,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
@@ -70707,7 +70707,7 @@
                                         "end_col": 115,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/mint/0122b19de040eb865fcbba32400abf42c59f4ca71149a0261db555af1db93db6.cairo"
+                                            "filename": "autogen/starknet/external/mint/d084fe2d924f2eb821cc908c2b9b8abedf9d534ba306d7d757790718957c8c45.cairo"
                                         },
                                         "parent_location": [
                                             {
@@ -70726,10 +70726,10 @@
                                     },
                                     "While expanding the reference 'range_check_ptr' in:"
                                 ],
-                                "start_col": 41,
+                                "start_col": 36,
                                 "start_line": 175
                             },
-                            "While handling calldata argument 'base_token_uri'"
+                            "While handling calldata argument 'token_uri'"
                         ],
                         "start_col": 23,
                         "start_line": 3
@@ -70762,7 +70762,7 @@
                                         "end_col": 137,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/mint/0122b19de040eb865fcbba32400abf42c59f4ca71149a0261db555af1db93db6.cairo"
+                                            "filename": "autogen/starknet/external/mint/d084fe2d924f2eb821cc908c2b9b8abedf9d534ba306d7d757790718957c8c45.cairo"
                                         },
                                         "parent_location": [
                                             {
@@ -70800,24 +70800,24 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 57,
+                        "end_col": 52,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/arg_processor/e89735e898bfda825d51380fb4cb3d5255c12052fd064e593fdc9464c2ccfa18.cairo"
+                            "filename": "autogen/starknet/arg_processor/223902ce5446eccb1cb23bf7b5b86ec8f341ee7e2c4e93b0da98943c56d3e47c.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 39,
+                                "end_col": 34,
                                 "end_line": 175,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 191,
+                                        "end_col": 181,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/mint/0122b19de040eb865fcbba32400abf42c59f4ca71149a0261db555af1db93db6.cairo"
+                                            "filename": "autogen/starknet/external/mint/d084fe2d924f2eb821cc908c2b9b8abedf9d534ba306d7d757790718957c8c45.cairo"
                                         },
                                         "parent_location": [
                                             {
@@ -70831,17 +70831,17 @@
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
-                                        "start_col": 158,
+                                        "start_col": 153,
                                         "start_line": 1
                                     },
-                                    "While expanding the reference '__calldata_arg_base_token_uri_len' in:"
+                                    "While expanding the reference '__calldata_arg_token_uri_len' in:"
                                 ],
                                 "start_col": 15,
                                 "start_line": 175
                             },
-                            "While handling calldata argument 'base_token_uri_len'"
+                            "While handling calldata argument 'token_uri_len'"
                         ],
-                        "start_col": 41,
+                        "start_col": 36,
                         "start_line": 1
                     }
                 },
@@ -70855,24 +70855,24 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 64,
+                        "end_col": 59,
                         "end_line": 5,
                         "input_file": {
-                            "filename": "autogen/starknet/arg_processor/45ed6ef262077fa3bfbfcb4499e5b8bac4739e2007b0899d7cd45163c2f5af15.cairo"
+                            "filename": "autogen/starknet/arg_processor/108e873a224415bd1581c1c03b45edd86863929fd289ca5c66f97cf208544583.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 62,
+                                "end_col": 52,
                                 "end_line": 175,
                                 "input_file": {
                                     "filename": "contracts/Ciri_ERC721.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 237,
+                                        "end_col": 217,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/mint/0122b19de040eb865fcbba32400abf42c59f4ca71149a0261db555af1db93db6.cairo"
+                                            "filename": "autogen/starknet/external/mint/d084fe2d924f2eb821cc908c2b9b8abedf9d534ba306d7d757790718957c8c45.cairo"
                                         },
                                         "parent_location": [
                                             {
@@ -70886,17 +70886,17 @@
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
-                                        "start_col": 208,
+                                        "start_col": 193,
                                         "start_line": 1
                                     },
-                                    "While expanding the reference '__calldata_arg_base_token_uri' in:"
+                                    "While expanding the reference '__calldata_arg_token_uri' in:"
                                 ],
-                                "start_col": 41,
+                                "start_col": 36,
                                 "start_line": 175
                             },
-                            "While handling calldata argument 'base_token_uri'"
+                            "While handling calldata argument 'token_uri'"
                         ],
-                        "start_col": 37,
+                        "start_col": 32,
                         "start_line": 5
                     }
                 },
@@ -70932,7 +70932,7 @@
                         "end_col": 115,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/mint/0122b19de040eb865fcbba32400abf42c59f4ca71149a0261db555af1db93db6.cairo"
+                            "filename": "autogen/starknet/external/mint/d084fe2d924f2eb821cc908c2b9b8abedf9d534ba306d7d757790718957c8c45.cairo"
                         },
                         "parent_location": [
                             {
@@ -70946,7 +70946,7 @@
                                         "end_col": 93,
                                         "end_line": 2,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/mint/0122b19de040eb865fcbba32400abf42c59f4ca71149a0261db555af1db93db6.cairo"
+                                            "filename": "autogen/starknet/external/mint/d084fe2d924f2eb821cc908c2b9b8abedf9d534ba306d7d757790718957c8c45.cairo"
                                         },
                                         "parent_location": [
                                             {
@@ -70987,7 +70987,7 @@
                         "end_col": 94,
                         "end_line": 2,
                         "input_file": {
-                            "filename": "autogen/starknet/external/mint/0122b19de040eb865fcbba32400abf42c59f4ca71149a0261db555af1db93db6.cairo"
+                            "filename": "autogen/starknet/external/mint/d084fe2d924f2eb821cc908c2b9b8abedf9d534ba306d7d757790718957c8c45.cairo"
                         },
                         "parent_location": [
                             {
@@ -71018,7 +71018,7 @@
                         "end_col": 82,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/mint/0122b19de040eb865fcbba32400abf42c59f4ca71149a0261db555af1db93db6.cairo"
+                            "filename": "autogen/starknet/external/mint/d084fe2d924f2eb821cc908c2b9b8abedf9d534ba306d7d757790718957c8c45.cairo"
                         },
                         "parent_location": [
                             {
@@ -71073,7 +71073,7 @@
                         "end_col": 57,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/mint/0122b19de040eb865fcbba32400abf42c59f4ca71149a0261db555af1db93db6.cairo"
+                            "filename": "autogen/starknet/external/mint/d084fe2d924f2eb821cc908c2b9b8abedf9d534ba306d7d757790718957c8c45.cairo"
                         },
                         "parent_location": [
                             {
@@ -71128,7 +71128,7 @@
                         "end_col": 21,
                         "end_line": 2,
                         "input_file": {
-                            "filename": "autogen/starknet/external/mint/0122b19de040eb865fcbba32400abf42c59f4ca71149a0261db555af1db93db6.cairo"
+                            "filename": "autogen/starknet/external/mint/d084fe2d924f2eb821cc908c2b9b8abedf9d534ba306d7d757790718957c8c45.cairo"
                         },
                         "parent_location": [
                             {
@@ -71183,7 +71183,7 @@
                         "end_col": 35,
                         "end_line": 2,
                         "input_file": {
-                            "filename": "autogen/starknet/external/mint/0122b19de040eb865fcbba32400abf42c59f4ca71149a0261db555af1db93db6.cairo"
+                            "filename": "autogen/starknet/external/mint/d084fe2d924f2eb821cc908c2b9b8abedf9d534ba306d7d757790718957c8c45.cairo"
                         },
                         "parent_location": [
                             {
@@ -71238,7 +71238,7 @@
                         "end_col": 44,
                         "end_line": 2,
                         "input_file": {
-                            "filename": "autogen/starknet/external/mint/0122b19de040eb865fcbba32400abf42c59f4ca71149a0261db555af1db93db6.cairo"
+                            "filename": "autogen/starknet/external/mint/d084fe2d924f2eb821cc908c2b9b8abedf9d534ba306d7d757790718957c8c45.cairo"
                         },
                         "parent_location": [
                             {
@@ -74531,17 +74531,17 @@
             "__main__._setTokenURI.Args": {
                 "full_name": "__main__._setTokenURI.Args",
                 "members": {
-                    "base_token_uri": {
-                        "cairo_type": "felt*",
-                        "offset": 3
-                    },
-                    "base_token_uri_len": {
-                        "cairo_type": "felt",
-                        "offset": 2
-                    },
                     "token_id": {
                         "cairo_type": "starkware.cairo.common.uint256.Uint256",
                         "offset": 0
+                    },
+                    "token_uri": {
+                        "cairo_type": "felt*",
+                        "offset": 3
+                    },
+                    "token_uri_len": {
+                        "cairo_type": "felt",
+                        "offset": 2
                     }
                 },
                 "size": 4,
@@ -75103,17 +75103,17 @@
             "__main__.mint.Args": {
                 "full_name": "__main__.mint.Args",
                 "members": {
-                    "base_token_uri": {
-                        "cairo_type": "felt*",
-                        "offset": 2
-                    },
-                    "base_token_uri_len": {
-                        "cairo_type": "felt",
-                        "offset": 1
-                    },
                     "to": {
                         "cairo_type": "felt",
                         "offset": 0
+                    },
+                    "token_uri": {
+                        "cairo_type": "felt*",
+                        "offset": 2
+                    },
+                    "token_uri_len": {
+                        "cairo_type": "felt",
+                        "offset": 1
                     }
                 },
                 "size": 3,
