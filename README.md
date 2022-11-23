@@ -79,5 +79,5 @@ Testnet Contracts :
 Aspect NFTs Marketplace links :
 
 - [Profile NFTs](https://testnet.aspect.co/collection/0x022da370305a2281f811c7c9ff4d9ec75f8acf5e0b15adbc589bcc99a6b2eca7)
-- [Collectible NFTs](hhttps://testnet.aspect.co/collection/0x06e7d4f14ec221b02d82477101d4d53094b543f550a51a641855d2c9d32626d5)
+- [Collectible NFTs](https://testnet.aspect.co/collection/0x06e7d4f14ec221b02d82477101d4d53094b543f550a51a641855d2c9d32626d5)
 
