@@ -71,8 +71,13 @@ Related Repos :
 
 Testnet Contracts :
 
-- [Creator Profile](https://testnet.starkscan.co/contract/0x03ea63dc43f089f652bec64f2a13427bf95b84fd214b85c2e2cda1ff91259117)
-- [Collectible NFTs Contract](https://testnet.starkscan.co/contract/0x05b3ec22c6dcdb0fefad69df026939d26ae86ac9a710c9070cbc2593bece6465)
-- [Voting Contract](https://testnet.starkscan.co/contract/0x0502842cf2409544b50fc254e4aec2fe13cb530eb2dc97710e4974964d0f5246)
-- [Ciri Token](https://testnet.starkscan.co/contract/0x02a79baff372303349d5d998f3b1d406c94d2f630b416c5a801720f958b6aa42)
+- [Creator Profile](https://testnet.starkscan.co/contract/0x022da370305a2281f811c7c9ff4d9ec75f8acf5e0b15adbc589bcc99a6b2eca7)
+- [Collectible NFTs Contract](https://testnet.starkscan.co/contract/0x06e7d4f14ec221b02d82477101d4d53094b543f550a51a641855d2c9d32626d5)
+- [Voting Contract](https://testnet.starkscan.co/contract/0x04bf2dba38a4c358184a6c3070b349512041a8564e124698e1c8dae4989bde16)
+- [Ciri Token](https://testnet.starkscan.co/contract/0x053b40ff949ebdda717f68f2a5c90121387c4a1caa4f9a5343933d1ba61b59a7)
+
+Aspect NFTs Marketplace links :
+
+- [Profile NFTs](https://testnet.aspect.co/collection/0x022da370305a2281f811c7c9ff4d9ec75f8acf5e0b15adbc589bcc99a6b2eca7)
+- [Collectible NFTs](hhttps://testnet.aspect.co/collection/0x06e7d4f14ec221b02d82477101d4d53094b543f550a51a641855d2c9d32626d5)
 
