@@ -67,7 +67,7 @@ Ciriverse Fans Summary:
 Related Repos :
 - [Front-end](https://github.com/said017/cairo-fe-ciri)
 - [Notification Server](https://github.com/said017/ciriverse-stark-notification)
-- [Apibara Indexer (Work On Progress)](https://github.com/said017/ciri-event-indexer)
+- [Apibara Indexer (Work On Progress)](https://github.com/said017/ciri-event-indexer-ts)
 
 Testnet Contracts :
 
